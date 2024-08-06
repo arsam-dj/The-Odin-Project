@@ -11,3 +11,8 @@
     height: auto;
     width: 300px;
 }
+
+.recipe {
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
