@@ -82,6 +82,7 @@ img {
 
 .section1 .sign-up {
     border-radius: 5px;
+    border-style: solid;
     background-color: #3882F6;
     color: #E5E7EB;
     font-weight: bolder;
@@ -96,7 +97,7 @@ img {
 
 /* ------------ Section 2 ------------ */
 .section2 {
-    padding: 0px 100px 100px 100px;
+    padding: 100px 150px 100px 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,16 +105,16 @@ img {
 }
 
 .section2 .main-title {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: bolder;
     color: #1F2937;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 .section2-container {
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: 150px;
 }
 
 .section2-box {
@@ -121,18 +122,89 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 120px;
+    gap: 10px;
+    width: 160px;
 }
 
 .box {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     border: 4px solid #3882F6;
     border-radius: 20px;
 }
 
 .section2-text {
     text-align: center;
+    font-size: 25px;
+}
+/* ----------------------------------- */
+
+/* ------------ Section 3 ------------ */
+.section3 {
+    padding: 100px 300px 100px 300px;
+    background-color: #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote {
+    font-style: italic;
+    font-weight: lighter;
+    font-size: 36px;
+    color: #1F2937;
+    text-align: justify;
+}
+
+.attribute {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: auto;
+}
+/* ----------------------------------- */
+
+/* ------------ Section 4 ------------ */
+.section4 {
+    padding: 70px 100px 70px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bluebox {
+    padding: 50px 50px 50px 50px;
+    background-color: #3882F6;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.section4 .main-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.section4 .sub-text {
+    font-size: 16px;
+}
+
+.section4 .sign-up {
+    border-radius: 5px;
+    border-color: white;
+    border-style: solid;
+    background-color: #3882F6;
+    color: #E5E7EB;
+    font-weight: bolder;
+    cursor: pointer;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
 }
 /* ----------------------------------- */
 
