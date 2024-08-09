@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        console.log("Welcome to the Rock/Paper/Scissors Game!")
+        
+
+        // get the computer choice
+        function getComputerChoice() {
+            // The computer needs to randomly pick Rock (1), Paper (2), or Scissors (3)
+            let randomNumber = Math.floor((Math.random() * (4 - 1)) + 1);
+            
+            return randomNumber === 1 ? "rock"
+            : randomNumber === 2 ? "paper"
+            : "scissors";
+        }
+
+        let computerChoice = getComputerChoice();
+        console.log(computerChoice)
+
+
+        // get the human choice
+        function getHumanChoice() {
+            let humanChoice = String(prompt("Do you choose Rock, Paper, or Scissors?")).toLowerCase()
+            
+            if (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
+                humanChoice = String(prompt("Please only type Rock, Paper, or Scissors (case insensitive).")).toLowerCase()
+            }
+
+            return humanChoice
+        }
+
+        let humanChoice = getHumanChoice()
+        console.log(humanChoice)
+        
+    </script>
+</body>
+</html>
