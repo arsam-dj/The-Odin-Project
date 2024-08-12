@@ -20,9 +20,6 @@
             : "scissors";
         }
 
-        let computerChoice = getComputerChoice();
-        console.log(computerChoice)
-
 
         // get the human choice
         function getHumanChoice() {
@@ -35,9 +32,59 @@
             return humanChoice
         }
 
-        let humanChoice = getHumanChoice()
-        console.log(humanChoice)
+
+        // Declare score variables
+        let humanScore = 0
+        let computerScore = 0
+
+
+        // Write the code needed to play a single round; function takes human and computer choices,
+        // determines the winner, and increments scores accordingly
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice === computerChoice) {
+                humanScore += 0
+                computerScore += 0
+                console.log(`You and the Computer both chose ${humanChoice}. It's a tie.`)
+            } else if ((humanChoice === "rock" && computerChoice == "scissors") || 
+            (humanChoice == "paper" && computerChoice == "rock") || 
+            (humanChoice == "scissors" && computerChoice == "rock")) {
+                humanScore += 1
+                console.log(`You chose ${humanChoice} and the Computer chose ${computerChoice}. You have won this round!`)
+            } else {
+                computerScore += 1
+                console.log(`You chose ${humanChoice} and the Computer chose ${computerChoice}. You have lost this round...`)
+
+            }
+
+            console.log(`Your score: ${humanScore}`)
+            console.log(`Computer's score: ${computerScore}`)
+        }
         
+        
+        // Write a function to play a game of 5 rounds, keep track of scores, and declare a winner at the end
+
+        function playGame() {
+            for (let i = 1; i <= 5; i++) {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                console.log(`Round number ${i}.`)
+                playRound(humanSelection, computerSelection);
+                console.log("")
+
+            }
+
+            if (humanScore > computerScore) {
+                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. You're the winner!`)
+                } else if (computerScore > humanScore) {
+                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. Looks like you lost...`)
+                } else {
+                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. It's a tie.`)
+                }
+        }
+
+        playGame()
     </script>
 </body>
 </html>
