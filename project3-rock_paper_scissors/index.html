@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        console.log("Welcome to the Rock/Paper/Scissors Game!")
+        console.log("Welcome to the Rock/Paper/Scissors Game!");
         
 
         // get the computer choice
@@ -18,24 +18,26 @@
             return randomNumber === 1 ? "rock"
             : randomNumber === 2 ? "paper"
             : "scissors";
-        }
+        };
 
 
         // get the human choice
         function getHumanChoice() {
-            let humanChoice = String(prompt("Do you choose Rock, Paper, or Scissors?")).toLowerCase()
+            let humanChoice = String(prompt("Do you choose Rock, Paper, or Scissors?")).toLowerCase();
             
-            if (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
-                humanChoice = String(prompt("Please only type Rock, Paper, or Scissors (case insensitive).")).toLowerCase()
-            }
+            let validChoices = ["rock", "paper", "scissors"];
+
+            while(!(validChoices.includes(humanChoice))) {
+                humanChoice = String(prompt("Please only type Rock, Paper, or Scissors (case insensitive).")).toLowerCase();
+            };
 
             return humanChoice
-        }
+        };
 
 
         // Declare score variables
-        let humanScore = 0
-        let computerScore = 0
+        let humanScore = 0;
+        let computerScore = 0;
 
 
         // Write the code needed to play a single round; function takes human and computer choices,
@@ -48,18 +50,18 @@
                 console.log(`You and the Computer both chose ${humanChoice}. It's a tie.`)
             } else if ((humanChoice === "rock" && computerChoice == "scissors") || 
             (humanChoice == "paper" && computerChoice == "rock") || 
-            (humanChoice == "scissors" && computerChoice == "rock")) {
+            (humanChoice == "scissors" && computerChoice == "paper")) {
                 humanScore += 1
                 console.log(`You chose ${humanChoice} and the Computer chose ${computerChoice}. You have won this round!`)
             } else {
                 computerScore += 1
                 console.log(`You chose ${humanChoice} and the Computer chose ${computerChoice}. You have lost this round...`)
 
-            }
+            };
 
-            console.log(`Your score: ${humanScore}`)
-            console.log(`Computer's score: ${computerScore}`)
-        }
+            console.log(`Your score: ${humanScore}`);
+            console.log(`Computer's score: ${computerScore}`);
+        };
         
         
         // Write a function to play a game of 5 rounds, keep track of scores, and declare a winner at the end
@@ -69,22 +71,23 @@
                 const humanSelection = getHumanChoice();
                 const computerSelection = getComputerChoice();
 
-                console.log(`Round number ${i}.`)
+                console.log(`Round number ${i}.`);
                 playRound(humanSelection, computerSelection);
-                console.log("")
+                console.log("");
 
-            }
+            };
 
             if (humanScore > computerScore) {
-                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. You're the winner!`)
+                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. You're the winner!`);
                 } else if (computerScore > humanScore) {
-                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. Looks like you lost...`)
+                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. Looks like you lost...`);
                 } else {
-                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. It's a tie.`)
-                }
+                    console.log(`After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. It's a tie.`);
+                };
         }
 
-        playGame()
+        playGame();
+
     </script>
 </body>
 </html>
