@@ -1,3 +1,42 @@
 body {
     font-family: 'Showcard Gothic', 'Bauhaus 93', sans-serif;
+
+    background-image: url("images/gameboard.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
   }
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 270px;
+  margin-top: 300px;
+}
+
+#player-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#rock, #paper, #scissors, #question-mark {
+  padding: 55px;
+}
+
+#rock {
+  background: url(images/rock_blue.svg);
+}
+
+#paper {
+  background: url(images/paper_blue.svg);
+}
+
+#scissors {
+  background: url(images/scissors_blue.svg);
+}
+
+#question-mark {
+  background: url(images/question_mark.svg);
+}
