@@ -8,24 +8,39 @@
 </head>
 
 <body>
-    
-    <div id="buttons">
+
+    <div id="logo">
+        <img id="rps-logo" src="images/rps_logo.svg" alt="Rock-Paper-Scissors logo">
+    </div>
+
+    <div id="gameboard">
+        
         <div id="player-buttons">
             <button id="rock"></button>
             <button id="paper"></button>
             <button id="scissors"></button>
         </div>
-        
+
+        <div id="round-vs">
+            <p id="round">Round 1</p>
+            <img id="versus" src="images/versus.svg" alt="versus">
+        </div>
+
         <div id="computer-button">
             <button id="question-mark"></button>
         </div>
     </div>
 
-    <!-- <div id="score-div">
-        <p id="human-score">Your Score: 0</p>
-        <p id="computer-score">Computer's Score: 0</p>
-    </div> -->
-    
+    <div id="score">
+        <div id="player-score">
+            <p id="player-score">Your Score: 0</p>
+        </div>
+            
+        <div id="computer-score">
+            <p id="computer-score">Computer's Score: 0</p>
+        </div>
+    </div>
+
     <script src="rps-script.js"></script>
 </body>
 </html>

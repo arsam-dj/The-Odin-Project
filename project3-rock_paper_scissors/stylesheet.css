@@ -1,28 +1,56 @@
 body {
     font-family: 'Showcard Gothic', 'Bauhaus 93', sans-serif;
-
-    background-image: url("images/gameboard.svg");
+    font-size: 50px;
+/*     background-image: url("images/gameboard.svg");
+    background-size: 1920px 955px;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center center; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-#buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 270px;
-  margin-top: 300px;
+/* ---------- Logo ---------- */
+#rps-logo {
+  width: 500px;
+  height: auto;
+
+  padding: 50px 0px 20px 0px;
 }
 
+
+/* ---------- Game Board ---------- */
+#gameboard {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+
+  border: solid black;
+  border-width: 25px;
+  border-radius: 25px;
+
+  background-color: rgb(255, 255, 255, 0.5);
+
+  padding: 0px 100px;
+}
+
+/* ---------- Player Buttons Div ---------- */
 #player-buttons {
   display: flex;
   flex-direction: column;
 }
 
-#rock, #paper, #scissors, #question-mark {
-  padding: 55px;
+#rock, #paper, #scissors {
+  padding: 75px;
+  margin: 10px;
+}
+
+#question-mark {
+  padding: 90px;
 }
 
 #rock {
@@ -37,6 +65,39 @@ body {
   background: url(images/scissors_blue.svg);
 }
 
+
+/* ---------- Round and Versus Div ---------- */
+#round-vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+}
+
+#versus {
+  width: 150px;
+  height: auto;
+}
+
+
+/* ---------- Computer Button Div ---------- */
+#computer-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #question-mark {
   background: url(images/question_mark.svg);
+}
+
+
+/* ---------- Score Div ---------- */
+#score {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+
+  font-size: 40px;
 }
