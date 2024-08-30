@@ -1,9 +1,20 @@
-let promptText = document.querySelector('#prompt')
+// Declare round variables
+let roundsText = document.querySelector("#round")
 let rounds = 0
-let outcomePara = document.querySelector('#outcome')
-let humanScorePara = document.querySelector('#human-score')
-let compScorePara = document.querySelector('#computer-score')
 
+// Declare score variables
+let humanScore = 0;
+let computerScore = 0;
+let humanScorePara = document.querySelector('#player-score-text')
+let compScorePara = document.querySelector('#computer-score-text')
+
+// Declare feedback variables
+let computerAction = document.querySelector('#question-mark')
+let outcome = document.querySelector('#versus')
+let middleDiv = document.querySelector('#round-vs')
+
+
+// Add event listener to player buttons
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
@@ -11,7 +22,42 @@ buttons.forEach(button => {
     })
 });
 
-// get the computer choice
+
+// Create function to disable player buttons and create a
+// new button for moving to the next round
+function nextRoundPrompt() {
+    buttons.forEach(button => {
+        button.disabled = true
+    });
+    
+    let nextRoundBtn = document.createElement('button')
+
+    nextRoundBtn.id = 'next-round-btn'
+    
+    nextRoundBtn.style.backgroundImage = 'url(images/next_round.svg)'
+    nextRoundBtn.style.backgroundRepeat = 'no-repeat'
+    nextRoundBtn.style.width = '250px'
+    nextRoundBtn.style.height = '66px'
+
+    nextRoundBtn.addEventListener('click', nextRound)
+    middleDiv.appendChild(nextRoundBtn)
+}
+
+function nextRound() {
+    middleDiv.removeChild(document.querySelector('#next-round-btn'))
+    
+    outcome.style.backgroundImage = 'url(images/versus.svg)'
+    outcome.style.width = '150px'
+    outcome.style.height = '100px'
+    computerAction.style.backgroundImage = 'url(images/question_mark.svg)'
+
+    buttons.forEach(button => {
+        button.disabled = false
+    });
+}
+
+
+// Get the computer choice
 function getComputerChoice() {
     // The computer needs to randomly pick Rock (1), Paper (2), or Scissors (3)
     let randomNumber = Math.floor((Math.random() * (4 - 1)) + 1);
@@ -22,9 +68,7 @@ function getComputerChoice() {
 };
 
 
-// Declare score variables
-let humanScore = 0;
-let computerScore = 0;
+
 
 
 // Write the code needed to play a single round; function takes human and computer choices,
@@ -34,31 +78,53 @@ function playRound(event) {
     const humanChoice = event.target.id
     const computerChoice = getComputerChoice()
     
+    // update round
     rounds += 1
-    promptText.textContent = `Round number ${rounds}.`
+    roundsText.textContent = `Round ${rounds}`
     
     if (humanChoice === computerChoice) {
+        computerAction.style.backgroundImage = `url(images/${computerChoice}_blue.svg)`
+        outcome.style.backgroundImage = 'url(images/tie.svg)'
+        outcome.style.width = "175px"
+        outcome.style.height = "85px"
+
         humanScore += 0
         computerScore += 0
-        outcomePara.textContent = `You and the Computer both chose ${humanChoice}. It's a tie.`
+        humanScorePara.textContent = `Your Score: ${humanScore}`
+        compScorePara.textContent = `Computer's Score: ${computerScore}`
 
     } else if ((humanChoice === 'rock' && computerChoice == 'scissors') || 
     (humanChoice == 'paper' && computerChoice == 'rock') || 
     (humanChoice == 'scissors' && computerChoice == 'paper')) {
+        computerAction.style.backgroundImage = `url(images/${computerChoice}_red.svg)`
+        
+        document.querySelector(`#${humanChoice}`).style.backgroundImage = `url(images/${humanChoice}_green.svg)`
+        
+        outcome.style.backgroundImage = 'url(images/you_win.svg)'
+        outcome.style.width = "350px"
+        outcome.style.height = "70px"
+
         humanScore += 1
-        outcomePara.textContent = `You chose ${humanChoice} and the Computer chose ${computerChoice}. You have won this round!`
+        humanScorePara.textContent = `Your Score: ${humanScore}`
 
     } else {
-        computerScore += 1
-        outcomePara.textContent = `You chose ${humanChoice} and the Computer chose ${computerChoice}. You have lost this round...`
+        computerAction.style.backgroundImage = `url(images/${computerChoice}_green.svg)`
+        
+        document.querySelector(`#${humanChoice}`).style.backgroundImage = `url(images/${humanChoice}_red.svg)`
 
+        outcome.style.backgroundImage = 'url(images/you_lose.svg)'
+        outcome.style.width = "350px"
+        outcome.style.height = "70px"
+
+        computerScore += 1
+        compScorePara.textContent = `Computer's Score: ${computerScore}`
     };
     
-    humanScorePara.textContent = `Your Score: ${humanScore}`
-    compScorePara.textContent = `Computer's Score: ${computerScore}`
 
     if (rounds === 5) {
         endCurrentGame(humanScore, computerScore)
+    } else {
+        nextRoundPrompt()
     }
 }
 

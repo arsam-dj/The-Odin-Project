@@ -49,10 +49,6 @@ body {
   margin: 10px;
 }
 
-#question-mark {
-  padding: 90px;
-}
-
 #rock {
   background: url(images/rock_blue.svg);
 }
@@ -76,13 +72,17 @@ body {
 }
 
 #versus {
+  background: url(images/versus.svg);
+  background-repeat: no-repeat;
+  
   width: 150px;
-  height: auto;
+  height: 100px;
+  
 }
 
 
 /* ---------- Computer Button Div ---------- */
-#computer-button {
+#computer-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,6 +90,7 @@ body {
 
 #question-mark {
   background: url(images/question_mark.svg);
+  padding: 90px;
 }
 
 
