@@ -26,12 +26,15 @@ body {
 #gameboard {
   display: flex;
   flex-direction: row;
-  gap: 100px;
   justify-content: center;
+  gap: 100px;
 
   border: solid black;
   border-width: 25px;
   border-radius: 25px;
+
+  width: 800px;
+  height: 600px;
 
   background-color: rgb(255, 255, 255, 0.5);
 
@@ -42,6 +45,7 @@ body {
 #player-buttons {
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 
 #rock, #paper, #scissors {
@@ -67,7 +71,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 90px;
 
 }
 

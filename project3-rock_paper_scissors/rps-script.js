@@ -1,6 +1,6 @@
 // Declare round variables
 let roundsText = document.querySelector("#round")
-let rounds = 0
+let rounds = 1
 
 // Declare score variables
 let humanScore = 0;
@@ -10,8 +10,16 @@ let compScorePara = document.querySelector('#computer-score-text')
 
 // Declare feedback variables
 let computerAction = document.querySelector('#question-mark')
+let rockButton = document.querySelector('#rock')
+let paperButton = document.querySelector('#paper')
+let scissorsButton = document.querySelector('#scissors')
 let outcome = document.querySelector('#versus')
+
+// Declare main gameboard divs
+let gameboard = document.querySelector('#gameboard')
+let buttonDiv = document.querySelector('#player-buttons')
 let middleDiv = document.querySelector('#round-vs')
+let computerDiv = document.querySelector('#computer-div')
 
 
 // Add event listener to player buttons
@@ -44,6 +52,10 @@ function nextRoundPrompt() {
 }
 
 function nextRound() {
+    // update round
+    rounds += 1
+    roundsText.textContent = `Round ${rounds}`
+    
     middleDiv.removeChild(document.querySelector('#next-round-btn'))
     
     outcome.style.backgroundImage = 'url(images/versus.svg)'
@@ -54,6 +66,15 @@ function nextRound() {
     buttons.forEach(button => {
         button.disabled = false
     });
+
+    computerAction.style.backgroundImage = 'url(images/question_mark.svg)'
+    computerAction.style.padding = '90px'
+
+    rockButton.style.backgroundImage = 'url(images/rock_blue.svg)'
+    paperButton.style.backgroundImage = 'url(images/paper_blue.svg)'
+    scissorsButton.style.backgroundImage = 'url(images/scissors_blue.svg)'
+
+    gameboard.style.gap = '100px'
 }
 
 
@@ -78,9 +99,6 @@ function playRound(event) {
     const humanChoice = event.target.id
     const computerChoice = getComputerChoice()
     
-    // update round
-    rounds += 1
-    roundsText.textContent = `Round ${rounds}`
     
     if (humanChoice === computerChoice) {
         computerAction.style.backgroundImage = `url(images/${computerChoice}_blue.svg)`
@@ -88,12 +106,14 @@ function playRound(event) {
         outcome.style.width = "175px"
         outcome.style.height = "85px"
 
-        humanScore += 0
-        computerScore += 0
+        gameboard.style.gap = '100px'
+
+        humanScore += 1
+        computerScore += 1
         humanScorePara.textContent = `Your Score: ${humanScore}`
         compScorePara.textContent = `Computer's Score: ${computerScore}`
 
-    } else if ((humanChoice === 'rock' && computerChoice == 'scissors') || 
+    } else if ((humanChoice === 'rock' && computerChoice == 'scissors') ||
     (humanChoice == 'paper' && computerChoice == 'rock') || 
     (humanChoice == 'scissors' && computerChoice == 'paper')) {
         computerAction.style.backgroundImage = `url(images/${computerChoice}_red.svg)`
@@ -103,6 +123,8 @@ function playRound(event) {
         outcome.style.backgroundImage = 'url(images/you_win.svg)'
         outcome.style.width = "350px"
         outcome.style.height = "70px"
+
+        gameboard.style.gap = '100px'
 
         humanScore += 1
         humanScorePara.textContent = `Your Score: ${humanScore}`
@@ -115,6 +137,8 @@ function playRound(event) {
         outcome.style.backgroundImage = 'url(images/you_lose.svg)'
         outcome.style.width = "350px"
         outcome.style.height = "70px"
+
+        gameboard.style.gap = '100px'
 
         computerScore += 1
         compScorePara.textContent = `Computer's Score: ${computerScore}`
@@ -130,41 +154,50 @@ function playRound(event) {
 
 // Write a function that ends the current game asks if player wants to restart
 function endCurrentGame(humanScore, computerScore) {
+    
+    // Clear gameboard
+    gameboard.removeChild(buttonDiv)
+    gameboard.removeChild(middleDiv)
+    gameboard.removeChild(computerDiv)
+
+    gameboard.style.flexDirection = 'column'
+    gameboard.style.justifyContent = 'center'
+    gameboard.style.alignItems = 'center'
+
+    // Show outcome of game
+    let outcomeDiv = document.createElement('div')
+    outcomeDiv.id = 'outcome-div'
+    gameboard.appendChild(outcomeDiv)
+
     if (humanScore > computerScore) {
-        outcomePara.textContent = `After 5 rounds, your score is ${humanScore}. You're the winner!`
+        outcomeDiv.style.backgroundImage = 'url(images/you_won_the_game.svg)'
+        outcomeDiv.style.backgroundRepeat = 'no-repeat'
+        outcomeDiv.style.width = "500px"
+        outcomeDiv.style.height = "210px"
     } else if (computerScore > humanScore) {
-        outcomePara.textContent = `After 5 rounds, your score is ${humanScore} and the Computer's score is ${computerScore}. Looks like you lost...`
+        outcomeDiv.style.backgroundImage = 'url(images/you_lost_the_game.svg)'
+        outcomeDiv.style.backgroundRepeat = 'no-repeat'
+        outcomeDiv.style.width = "500px"
+        outcomeDiv.style.height = "210px"
     } else {
-        outcomePara.textContent = `After 5 rounds, your score and the Computer's score is ${computerScore}. It's a tie.`
+        outcomeDiv.style.backgroundImage = 'url(images/the_game_is_a_tie.svg)'
+        outcomeDiv.style.backgroundRepeat = 'no-repeat'
+        outcomeDiv.style.width = "500px"
+        outcomeDiv.style.height = "210px"
     }
 
-    buttons.forEach(button => {
-        button.disabled = true
-    });
-
+    // Add a Play Again button
     let playAgainBtn = document.createElement('button')
     playAgainBtn.id = 'play-again-btn'
-    playAgainBtn.textContent = 'Play Again?'
-    playAgainBtn.addEventListener('click', restartGame)
-    document.body.appendChild(playAgainBtn)
-}
 
-// Write a function to restart the game
-function restartGame () {
-    const playAgainBtn = document.querySelector('#play-again-btn')
-    document.body.removeChild(playAgainBtn)
+    playAgainBtn.style.backgroundImage = 'url(images/play_again.svg)'
+    playAgainBtn.style.backgroundRepeat = 'no-repeat'
+    playAgainBtn.style.width = '500px'
+    playAgainBtn.style.height = '132px'
 
-    buttons.forEach(button => {
-        button.disabled = false
-    });
-
-    rounds = 0
-    humanScore = 0
-    computerScore = 0
-
-    promptText.textContent = 'Rock, Paper, or Scissors? Choose!'
-    outcomePara.textContent = ''
-    humanScorePara.textContent = 'Your Score: 0'
-    compScorePara.textContent = "Computer's Score: 0"
+    playAgainBtn.addEventListener('click', () => {
+        window.location.reload();
+    })
+    gameboard.appendChild(playAgainBtn)
 
 }
