@@ -106,7 +106,7 @@ function playRound(event) {
         outcome.style.width = "175px"
         outcome.style.height = "85px"
 
-        gameboard.style.gap = '100px'
+        gameboard.style.gap = '77px'
 
         humanScore += 1
         computerScore += 1
@@ -124,7 +124,7 @@ function playRound(event) {
         outcome.style.width = "350px"
         outcome.style.height = "70px"
 
-        gameboard.style.gap = '100px'
+        gameboard.style.gap = '27px'
 
         humanScore += 1
         humanScorePara.textContent = `Your Score: ${humanScore}`
@@ -138,7 +138,7 @@ function playRound(event) {
         outcome.style.width = "350px"
         outcome.style.height = "70px"
 
-        gameboard.style.gap = '100px'
+        gameboard.style.gap = '27px'
 
         computerScore += 1
         compScorePara.textContent = `Computer's Score: ${computerScore}`
@@ -193,7 +193,7 @@ function endCurrentGame(humanScore, computerScore) {
     playAgainBtn.style.backgroundImage = 'url(images/play_again.svg)'
     playAgainBtn.style.backgroundRepeat = 'no-repeat'
     playAgainBtn.style.width = '500px'
-    playAgainBtn.style.height = '132px'
+    playAgainBtn.style.height = '124px'
 
     playAgainBtn.addEventListener('click', () => {
         window.location.reload();

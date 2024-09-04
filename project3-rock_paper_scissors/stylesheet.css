@@ -11,6 +11,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-image: url(images/grid.png);
+    background-size:contain;
   }
 
 /* ---------- Logo ---------- */
@@ -18,7 +21,7 @@ body {
   width: 500px;
   height: auto;
 
-  padding: 50px 0px 20px 0px;
+  padding: 25px 0px 20px 0px;
 }
 
 
@@ -105,4 +108,8 @@ body {
   gap: 200px;
 
   font-size: 40px;
+}
+
+#player-score-text, #computer-score-text {
+  margin: 5px;
 }
