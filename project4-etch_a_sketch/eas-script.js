@@ -1,44 +1,50 @@
+let squareDims = 30
+
+let gridHeight = 780
+let gridWidth = 1850
+
 // Create i x i grid of divs
 
 // makeDivArray creates an array with i divs in it. The
 // idea is to repeat this array numDivs times in a 
 // flexbox container to create a numDivs x numDivs grid.
-function makeDivRow(numDivs) {
+function makeDivCol(numDivs, pxDims) {
 
-    let divRow = document.createElement('div')
-    divRow.className = 'div-row'
+    let divCol = document.createElement('div')
+    divCol.className = 'div-col'
+    divCol.style.margin = '0px'
     
     for (i = 1; i <= numDivs; i++) {
         
         const unitDiv = document.createElement('div')
         unitDiv.className = 'unit-div'
-        unitDiv.style.border = 'solid black'
-        unitDiv.style.width = '50px'
-        unitDiv.style.height = '50px'
-        unitDiv.style.margin = '0px'
         
-        divRow.appendChild(unitDiv)
+        unitDiv.style.width = pxDims
+        unitDiv.style.height = pxDims
+        
+        divCol.appendChild(unitDiv)
     }
 
-    return divRow
+    return divCol
 }
 
-function makeDivGrid(numRowDivs) {
+function makeDivGrid(numColDivs, numDivsInCol, pxDims) {
     
     let gridContainer = document.createElement('div')
     gridContainer.id = 'grid-container'
-    gridContainer.style.display = 'flex'
-    gridContainer.style.flexDirection = 'row'
-    gridContainer.style.margin = '0px'
+
     document.body.appendChild(gridContainer)
 
-    const rowDiv = makeDivRow(numRowDivs)
+    const colDiv = makeDivCol(numDivsInCol, pxDims)
 
-    for (i = 1; i <= numRowDivs; i++) {
+    for (i = 1; i <= numColDivs; i++) {
         
-        gridContainer.appendChild(rowDiv.cloneNode(true))
+        gridContainer.appendChild(colDiv.cloneNode(true))
 
     }
 }
 
-makeDivGrid(16)
+makeDivGrid(numColDivs=Math.floor(gridWidth/squareDims), 
+            numDivsInCol=Math.floor(gridHeight/squareDims), 
+            pxDims=squareDims+'px')
+

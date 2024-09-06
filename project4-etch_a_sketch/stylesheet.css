@@ -1,6 +1,38 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin: 0px;
+    min-height: 100vh;
+
+    font-family: 'Showcard Gothic', 'Bauhaus 93', sans-serif;
 }
+
+#toolbar {
+    margin: 5px 0px 10px 0px;
+    box-sizing: border-box;
+}
+
+#eas-logo {
+    width: 900px;
+    height: auto;
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    background-color:antiquewhite;
+}
+
+.unit-div {
+    border: solid black;
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+label {
+    font-size: 20px;
+}
+
