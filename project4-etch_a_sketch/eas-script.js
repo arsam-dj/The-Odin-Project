@@ -48,3 +48,65 @@ makeDivGrid(numColDivs=Math.floor(gridWidth/squareDims),
             numDivsInCol=Math.floor(gridHeight/squareDims), 
             pxDims=squareDims+'px')
 
+
+
+// Make buttons functional. There are buttons to change
+// pen and background color separately.
+let defaultPenColor = 'black'
+let defaultBackgroundColor = 'white'
+
+let gridContainer = document.querySelector('#grid-container')
+let unitDivs = document.querySelectorAll('.unit-div')
+gridContainer.style.backgroundColor = defaultBackgroundColor
+
+let penButtons = document.querySelectorAll('.pen-button')
+let bgButtons = document.querySelectorAll('.bg-button')
+
+// Make functions to change pen and background colors
+function changePenColor(event) {
+    defaultPenColor = event.target.id
+}
+
+function changeBackgroundColor(event) {
+    defaultBackgroundColor = event.target.id
+    gridContainer.style.backgroundColor = defaultBackgroundColor
+
+    if (backgroundColor == 'black') {
+        unitDivs.forEach(unitDiv => {
+            unitDiv.style.borderColor = 'white'
+        })
+    } else {
+        unitDivs.forEach(unitDiv => {
+            unitDiv.style.borderColor = 'black'
+        })
+    }
+}
+
+// Add event listeners to change pen/background color on
+// click
+penButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        changePenColor(event)
+    })
+});
+
+bgButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        changeBackgroundColor(event)
+    })
+});
+
+
+// Add event listeners to each unitDiv so they change color
+// according to the pen color everytime they're hovered
+// over
+unitDivs.forEach(unitDiv => {
+    unitDiv.addEventListener('mouseover', () => {
+        unitDiv.style.backgroundColor = defaultPenColor
+    })
+
+    unitDiv.addEventListener('mouseout', () => {
+        unitDiv.style.backgroundColor = defaultBackgroundColor
+    })
+})
+
