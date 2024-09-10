@@ -99,7 +99,6 @@ bgButtons.forEach(button => {
 
 //=================================================//
 
-
 // Add event listeners to each unitDiv so they change color
 // according to the pen color everytime they're hovered
 // over
