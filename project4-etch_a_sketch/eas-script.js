@@ -62,6 +62,7 @@ gridContainer.style.backgroundColor = defaultBackgroundColor
 let penButtons = document.querySelectorAll('.pen-button')
 let bgButtons = document.querySelectorAll('.bg-button')
 
+
 // Make functions to change pen and background colors
 function changePenColor(event) {
     defaultPenColor = event.target.id
@@ -96,17 +97,33 @@ bgButtons.forEach(button => {
     })
 });
 
+//=================================================//
+
 
 // Add event listeners to each unitDiv so they change color
 // according to the pen color everytime they're hovered
 // over
+
+function changeUnitDivColor(unitDiv, color="") {
+    unitDiv.style.backgroundColor = color
+}
+
+// Functions to check if user is mid-click
+let mouseIsDown = 0
+document.body.onmousedown = function() {
+    ++mouseIsDown;
+}
+document.body.onmouseup = function() {
+    --mouseIsDown;
+}
+
 unitDivs.forEach(unitDiv => {
+
     unitDiv.addEventListener('mouseover', () => {
-        unitDiv.style.backgroundColor = defaultPenColor
+        if (mouseIsDown) {
+            changeUnitDivColor(unitDiv, defaultPenColor)
+        }
     })
 
-    unitDiv.addEventListener('mouseout', () => {
-        unitDiv.style.backgroundColor = defaultBackgroundColor
-    })
+
 })
-
