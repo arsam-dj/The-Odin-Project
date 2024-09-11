@@ -1,4 +1,13 @@
-let squareDims = 30
+let squareDims = null
+
+// Check to see if squareDims is already in localStorage
+if (localStorage.getItem('squareDims')) {
+    squareDims = localStorage.getItem('squareDims')
+} else {
+    squareDims = 30
+
+    localStorage.setItem('squareDims', squareDims)
+}
 
 let gridHeight = 780
 let gridWidth = 1850
@@ -48,7 +57,7 @@ makeDivGrid(numColDivs=Math.floor(gridWidth/squareDims),
             numDivsInCol=Math.floor(gridHeight/squareDims), 
             pxDims=squareDims+'px')
 
-
+//=================================================//
 
 // Make buttons functional. There are buttons to change
 // pen and background color separately.
@@ -72,7 +81,7 @@ function changeBackgroundColor(event) {
     defaultBackgroundColor = event.target.id
     gridContainer.style.backgroundColor = defaultBackgroundColor
 
-    if (backgroundColor == 'black') {
+    if (defaultBackgroundColor == 'black') {
         unitDivs.forEach(unitDiv => {
             unitDiv.style.borderColor = 'white'
         })
@@ -99,11 +108,10 @@ bgButtons.forEach(button => {
 
 //=================================================//
 
-// Add event listeners to each unitDiv so they change color
-// according to the pen color everytime they're hovered
-// over
+// Add event listeners to each unitDiv so the user can
+// color over them
 
-function changeUnitDivColor(unitDiv, color="") {
+function changeUnitDivColor(unitDiv, color='') {
     unitDiv.style.backgroundColor = color
 }
 
@@ -123,6 +131,32 @@ unitDivs.forEach(unitDiv => {
             changeUnitDivColor(unitDiv, defaultPenColor)
         }
     })
+})
 
 
+//=================================================//
+
+// Add final touches (make square size change and eraser
+// functional)
+
+const eraser = document.querySelector('#eraser')
+eraser.addEventListener('click', () => {
+    defaultPenColor = ''})
+
+// Here, I'm saving the last saved squareDims in local storage, then refreshing the page. This
+// causes this whole script to run with the new squareDim number.
+let userSize = document.querySelector('#square-size')
+const goBtn = document.querySelector('#size-submit')
+goBtn.addEventListener('click', () => {
+    squareDims = parseInt(userSize.value)
+    
+    if (squareDims < 10) {
+        squareDims = 10
+        alert('Minimum size allowed is 10px.')
+    }
+
+    localStorage.setItem('squareDims', squareDims)
+    window.location.reload()
+
+    userSize.value = ''
 })

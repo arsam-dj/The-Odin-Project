@@ -42,6 +42,12 @@ button {
     border-radius: 50%;
     width: 35px;
     height: 35px;
+    text-align: center;
+}
+
+#eraser {
+    height: 40px;
+    width: 60px;
 }
 
 #size-selection, #pen-selection, #bg-selection {
