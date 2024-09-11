@@ -1,5 +1,5 @@
 // Declare round variables
-let roundsText = document.querySelector("#round")
+let roundsText = document.querySelector('#round')
 let rounds = 1
 
 // Declare score variables
@@ -103,8 +103,8 @@ function playRound(event) {
     if (humanChoice === computerChoice) {
         computerAction.style.backgroundImage = `url(images/${computerChoice}_blue.svg)`
         outcome.style.backgroundImage = 'url(images/tie.svg)'
-        outcome.style.width = "175px"
-        outcome.style.height = "85px"
+        outcome.style.width = '175px'
+        outcome.style.height = '85px'
 
         gameboard.style.gap = '77px'
 
@@ -121,8 +121,8 @@ function playRound(event) {
         document.querySelector(`#${humanChoice}`).style.backgroundImage = `url(images/${humanChoice}_green.svg)`
         
         outcome.style.backgroundImage = 'url(images/you_win.svg)'
-        outcome.style.width = "350px"
-        outcome.style.height = "70px"
+        outcome.style.width = '350px'
+        outcome.style.height = '70px'
 
         gameboard.style.gap = '27px'
 
@@ -135,8 +135,8 @@ function playRound(event) {
         document.querySelector(`#${humanChoice}`).style.backgroundImage = `url(images/${humanChoice}_red.svg)`
 
         outcome.style.backgroundImage = 'url(images/you_lose.svg)'
-        outcome.style.width = "350px"
-        outcome.style.height = "70px"
+        outcome.style.width = '350px'
+        outcome.style.height = '70px'
 
         gameboard.style.gap = '27px'
 
@@ -172,18 +172,18 @@ function endCurrentGame(humanScore, computerScore) {
     if (humanScore > computerScore) {
         outcomeDiv.style.backgroundImage = 'url(images/you_won_the_game.svg)'
         outcomeDiv.style.backgroundRepeat = 'no-repeat'
-        outcomeDiv.style.width = "500px"
-        outcomeDiv.style.height = "210px"
+        outcomeDiv.style.width = '500px'
+        outcomeDiv.style.height = '210px'
     } else if (computerScore > humanScore) {
         outcomeDiv.style.backgroundImage = 'url(images/you_lost_the_game.svg)'
         outcomeDiv.style.backgroundRepeat = 'no-repeat'
-        outcomeDiv.style.width = "500px"
-        outcomeDiv.style.height = "210px"
+        outcomeDiv.style.width = '500px'
+        outcomeDiv.style.height = '210px'
     } else {
         outcomeDiv.style.backgroundImage = 'url(images/the_game_is_a_tie.svg)'
         outcomeDiv.style.backgroundRepeat = 'no-repeat'
-        outcomeDiv.style.width = "500px"
-        outcomeDiv.style.height = "210px"
+        outcomeDiv.style.width = '500px'
+        outcomeDiv.style.height = '210px'
     }
 
     // Add a Play Again button
