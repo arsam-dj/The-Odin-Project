@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    min-height: 100vh;
+
+    font-family: 'Showcard Gothic', 'Bauhaus 93', sans-serif;
+
+    
+}
+
+
+/*---------- Toolbar and Logo ---------- */
+#toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px 10px 0px;
+    box-sizing: border-box;
+}
+
+#eas-logo {
+    width: 900px;
+    height: auto;
+}
+
+
+/*---------- User Customizable Features ---------- */
+label {
+    font-size: 30px;
+}
+
+#size-color-prompt {
+    display: flex;
+    gap: 50px;
+}
+
+button {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+}
+
+#eraser {
+    height: 40px;
+    width: 60px;
+}
+
+#size-selection, #pen-selection, #bg-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/*---------- Button Colors ---------- */
+#red {
+    background-color: red;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#green {
+    background-color: green;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#purple {
+    background-color: purple;
+}
+
+#brown {
+    background-color: brown;
+}
+
+#black {
+    background-color: black;
+}
+
+#white {
+    background-color: white;
+}
+
+/*---------- Grid Container and Unit Divs ---------- */
+#grid-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    border: solid black 5px;
+    
+}
+
+.unit-div {
+    border: solid black;
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+
+
+
