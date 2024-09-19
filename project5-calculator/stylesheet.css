@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
 body {
     display: flex;
     flex-direction: column;
@@ -6,106 +8,77 @@ body {
     margin: 0px;
     min-height: 100vh;
 
-    font-family: 'Showcard Gothic', 'Bauhaus 93', sans-serif;
-
-    
+    font-family: 'Orbitron', sans-serif;
 }
 
 
-/*---------- Toolbar and Logo ---------- */
-#toolbar {
+/*---------- Calculator Body ---------- */
+
+#container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5px 0px 10px 0px;
+    gap: 10px;
+
+    background-color: #252422;
+    border: 3px solid black;
+    border-radius: 5%;
+    padding: 10px;
+}
+
+#display {
     box-sizing: border-box;
+    
+    background-color: #fffcf2;
+    border-radius: 5%;
+    width: 120px;
+
 }
 
-#eas-logo {
-    width: 900px;
-    height: auto;
+#displayText {
+    padding: 0px;
+    margin: 0px;
 }
 
-
-/*---------- User Customizable Features ---------- */
-label {
-    font-size: 30px;
-}
-
-#size-color-prompt {
+#numpad {
     display: flex;
-    gap: 50px;
-}
-
-button {
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-}
-
-#eraser {
-    height: 40px;
-    width: 60px;
-}
-
-#size-selection, #pen-selection, #bg-selection {
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 2px;
 }
 
 
-/*---------- Button Colors ---------- */
-#red {
-    background-color: red;
-}
-
-#blue {
-    background-color: blue;
-}
-
-#green {
-    background-color: green;
-}
-
-#yellow {
-    background-color: yellow;
-}
-
-#purple {
-    background-color: purple;
-}
-
-#brown {
-    background-color: brown;
-}
-
-#black {
-    background-color: black;
-}
-
-#white {
-    background-color: white;
-}
-
-/*---------- Grid Container and Unit Divs ---------- */
-#grid-container {
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-    border: solid black 5px;
+/*---------- Buttons ---------- */
+button {
+    border: 1px solid black;
+    border-radius: 50%;
     
+    font-size: small;
+    text-align: center;
+    
+    width: 22px;
+    height: 22px;
+
+    padding: 0px;
+    line-height: 0px;
+
 }
 
-.unit-div {
-    border: solid black;
-    border-width: 1px;
-    box-sizing: border-box;
+.numpad {
+    background-color: #ccc5b9;
 }
 
+#equal,  .operator{
+    background-color: #eb5e28;
+}
 
+#backspace, #clear {
+    background-color: #fffcf2;
+}
 
+#backspace {
+    font-style: normal;
+}
 

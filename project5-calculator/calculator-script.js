@@ -1,3 +1,19 @@
+// ------------------- Display ------------------- //
+let displayPara = document.querySelector('#displayText')
+
+function changeDisplay(text) {
+    currDisplay = displayPara.innerText
+    if (currDisplay !== '') {
+        text = currDisplay + text
+    }
+
+    displayPara.innerText = text
+    displayPara.style.padding = '0px' 
+}
+
+
+// ------------- Operator Functions ------------- //
+
 function add(...params) {
     return(params.reduce((paramSum, a) => paramSum + a, 0))
 }
@@ -34,6 +50,28 @@ function operate(firstNum, operator, secondNum) {
             }
     }
 }
+
+// ------------------- Buttons ------------------- //
+const displayButtons = document.querySelectorAll('.numpad, .operator')
+displayButtons.forEach(displayButton => {
+    displayButton.addEventListener('click', (event) =>
+    changeDisplay(event.target.textContent)
+)
+})
+
+const clearButton = document.querySelector('#clear')
+clearButton.addEventListener('click', () => {
+    displayPara.innerText = ''
+    displayPara.style.height = '20px'
+    displayPara.style.width = '120px'
+})
+
+const delButton = document.querySelector('#backspace')
+delButton.addEventListener('click', () => {
+    displayPara.innerText = displayPara.innerText.slice(0,-1)
+    displayPara.style.height = '20px'
+    displayPara.style.width = '120px'
+})
 
 /* --------------------------------------------------- */
 
