@@ -4,144 +4,196 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maplestory Stats</title>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-  <div id="left-div"> 
-    <form action="" method="post"></form>
-    <fieldset>
-      <legend>Basic Character Information</legend>
-      
-      <label for="ign">Character's Name:</label>
-      <input type="text" name="ign" id="ign">
-      
-      <label for="class">Class:</label>
-      <select id="class" name="groups">
-        <optgroup label="Explorers">
-          <option>Hero</option>
-          <option>Paladin</option>
-          <option>Dark Knight</option>
-          <option>Bishop</option>
-          <option>Ice/Lightning Mage</option>
-          <option>Fire/Poison Mage</option>
-          <option>Dual Blade</option>
-          <option>Shadower</option>
-          <option>Night Lord</option>
-          <option>Pathfinder</option>
-          <option>Marksman</option>
-          <option>Bowmaster</option>
-          <option>Cannoneer</option>
-          <option>Buccaneer</option>
-          <option>Corsair</option>
-        </optgroup>
-        <optgroup label="Cygnus Knights">
-          <option>Dawn Warrior</option>
-          <option >Blaze Wizard</option>
-          <option>Wind Archer</option>
-          <option>Night Walker</option>
-          <option>Thunder Breaker</option>
-        </optgroup>
-        <optgroup label="Heroes">
-          <option>Aran</option>
-          <option>Evan</option>
-          <option>Luminous</option>
-          <option>Mercedes</option>
-          <option>Phantom</option>
-          <option>Shade</option>
-        </optgroup>
-        <optgroup label="Resistance">
-          <option>Blaster</option>
-          <option>Battle Mage</option>
-          <option>Wild Hunter</option>
-          <option>Xenon</option>
-          <option>Mechanic</option>
-        </optgroup>
-        <optgroup label="Demon">
-          <option>Demon Avenger</option>
-          <option>Demon Slayer</option>
-        </optgroup>
-        <optgroup label="Nova">
-          <option>Kaiser</option>
-          <option>Kain</option>
-          <option>Cadena</option>
-          <option>Angelic Buster</option>
-        </optgroup>
-        <optgroup label="Flora">
-          <option>Adele</option>
-          <option>Illium</option>
-          <option>Khali</option>
-          <option>Ark</option>
-        </optgroup>
-        <optgroup label="Anima">
-          <option>Lara</option>
-          <option>Hoyoung</option>
-          <option>Khali</option>
-          <option>Ark</option>
-        </optgroup>
-        <optgroup label="Sengoku">
-          <option>Hayato</option>
-          <option>Kanna</option>
-        </optgroup>
-        <optgroup label="Other">
-          <option>Zero</option>
-          <option>Kinesis</option>
-          <option>Lynn</option>
-        </optgroup>
-      </select>
-  
-      <label for="level">Level:</label>
-      <input type="number" name="level" id="level">
-    </fieldset>
-
-    <fieldset>
-      <legend>Arcane Symbols</legend>
-
-      <label for="vanishing-journey">Vanishing Journey</label>
-      <input type="number" name="vanishing-journey" id="vanishing-journey" min="0" max="20">
-
-      <label for="chuchu-island">Chu Chu Island</label>
-      <input type="number" name="chuchu-island" id="chuchu-island" min="0" max="20">
-
-      <label for="lachlein">Lachlein</label>
-      <input type="number" name="lachlein" id="lachlein" min="0" max="20">
-
-      <label for="arcana">Arcana</label>
-      <input type="number" name="arcana" id="arcana" min="0" max="20">
-
-      <label for="morass">Morass</label>
-      <input type="number" name="morass" id="morass" min="0" max="20">
-
-      <label for="esfera">Esfera</label>
-      <input type="number" name="esfera" id="esfera" min="0" max="20">
-    </fieldset>
+  <div id="main-container">
+    <div id="left-div"> 
+      <form action="" method="post">
+        <div class="section">
+          <fieldset id="basic-information">
+            <legend>Basic Character Information</legend>
+            
+            <div id="basic-info-fields">
+              <label for="region">Region:</label>
+              <select id="region" name="region">
+                <option>GMS</option>
+                <option>KMS</option>
+                <option>MSEA</option>
+              </select>
+              
+              <label for="ign">Character's Name:</label>
+              <input type="text" name="ign" id="ign">
+              
+              <label for="class">Class:</label>
+              <select id="class" name="class">
+                <optgroup label="Explorers">
+                  <option>Hero</option>
+                  <option>Paladin</option>
+                  <option>Dark Knight</option>
+                  <option>Bishop</option>
+                  <option>Ice/Lightning Mage</option>
+                  <option>Fire/Poison Mage</option>
+                  <option>Dual Blade</option>
+                  <option>Shadower</option>
+                  <option>Night Lord</option>
+                  <option>Pathfinder</option>
+                  <option>Marksman</option>
+                  <option>Bowmaster</option>
+                  <option>Cannoneer</option>
+                  <option>Buccaneer</option>
+                  <option>Corsair</option>
+                </optgroup>
+                <optgroup label="Cygnus Knights">
+                  <option>Dawn Warrior</option>
+                  <option >Blaze Wizard</option>
+                  <option>Wind Archer</option>
+                  <option>Night Walker</option>
+                  <option>Thunder Breaker</option>
+                </optgroup>
+                <optgroup label="Heroes">
+                  <option>Aran</option>
+                  <option>Evan</option>
+                  <option>Luminous</option>
+                  <option>Mercedes</option>
+                  <option>Phantom</option>
+                  <option>Shade</option>
+                </optgroup>
+                <optgroup label="Resistance">
+                  <option>Blaster</option>
+                  <option>Battle Mage</option>
+                  <option>Wild Hunter</option>
+                  <option>Xenon</option>
+                  <option>Mechanic</option>
+                </optgroup>
+                <optgroup label="Demon">
+                  <option>Demon Avenger</option>
+                  <option>Demon Slayer</option>
+                </optgroup>
+                <optgroup label="Nova">
+                  <option>Kaiser</option>
+                  <option>Kain</option>
+                  <option>Cadena</option>
+                  <option>Angelic Buster</option>
+                </optgroup>
+                <optgroup label="Flora">
+                  <option>Adele</option>
+                  <option>Illium</option>
+                  <option>Khali</option>
+                  <option>Ark</option>
+                </optgroup>
+                <optgroup label="Anima">
+                  <option>Lara</option>
+                  <option>Hoyoung</option>
+                  <option>Khali</option>
+                  <option>Ark</option>
+                </optgroup>
+                <optgroup label="Sengoku">
+                  <option>Hayato</option>
+                  <option>Kanna</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option>Zero</option>
+                  <option>Kinesis</option>
+                  <option>Lynn</option>
+                </optgroup>
+              </select>
+          
+              <label for="level">Level:</label>
+              <input type="number" name="level" id="level" min="10" max="300">
+            </div>
     
-    <fieldset>
-      <legend>Grandis Symbols</legend>
-
-      <label for="cernium">Cernium</label>
-      <input type="number" name="cernium" id="cernium" min="0" max="11">
-
-      <label for="hotel-arcus">Hotel Arcus</label>
-      <input type="number" name="hotel-arcus" id="hotel-arcus" min="0" max="11">
-
-      <label for="odium">Odium</label>
-      <input type="number" name="odium" id="odium" min="0" max="11">
-
-      <label for="shangri-la">Shangri-La</label>
-      <input type="number" name="shangri-la" id="shangri-la" min="0" max="11">
-
-      <label for="arteria">Arteria</label>
-      <input type="number" name="arteria" id="arteria" min="0" max="11">
-
-      <label for="carcion">Carcion</label>
-      <input type="number" name="carcion" id="carcion" min="0" max="11">
-    </fieldset>
-
-    <fieldset>
-      <legend>Character Image</legend>
-      <input type="file" name="file" id="file" accept="image/*">
-    </fieldset>
+            <div id="character-image">
+              <img src="images/default-character.png" alt="Default character">
+              <button>Search</button>
+            </div>
     
+          </fieldset>
+      
+          <fieldset class="symbols">
+            <legend>Arcane Symbols</legend>
+            
+            <div id="symbol-div">
+              <label for="vanishing-journey">Vanishing Journey</label>
+              <input type="number" name="vanishing-journey" id="vanishing-journey" min="0" max="20">
+              <img class="arcane-symbol-img" src="images/vanishing_journey_symbol.png" alt="Vanishing Journey symbol">
+            </div>
+    
+            <div id="symbol-div">
+              <label for="chuchu-island">Chu Chu Island</label>
+              <input type="number" name="chuchu-island" id="chuchu-island" min="0" max="20">
+              <img class="arcane-symbol-img" src="images/chu_chu_symbol.png" alt="Chu Chu Island symbol">
+            </div>
+    
+            <div id="symbol-div">
+              <label for="lachlein">Lachlein</label>
+              <input type="number" name="lachlein" id="lachlein" min="0" max="20">
+              <img class="arcane-symbol-img" src="images/lachlein_symbol.png" alt="Lachlein symbol">
+            </div>
+    
+            <div id="symbol-div" style="margin-top: 20px">
+              <label for="arcana">Arcana</label>
+              <input type="number" name="arcana" id="arcana" min="0" max="20">
+              <img class="arcane-symbol-img" src="images/arcana_symbol.png" alt="Arcana symbol">
+            </div>
+    
+            <div id="symbol-div" style="margin-top: 20px">
+              <label for="morass">Morass</label>
+              <input type="number" name="morass" id="morass" min="0" max="20">
+              <img class="arcane-symbol-img" src="images/morass_symbol.png" alt="Morass symbol">
+            </div>
+    
+            <div id="symbol-div" style="margin-top: 20px">
+              <label for="esfera">Esfera</label>
+              <input type="number" name="esfera" id="esfera" min="0" max="20">
+              <img class="arcane-symbol-img" src="images/esfera_symbol.png" alt="Esfera symbol">
+            </div>
+          </fieldset>
+          
+          <fieldset class="symbols">
+            <legend>Grandis Symbols</legend>
+            
+            <div id="symbol-div">
+              <label for="cernium">Cernium</label>
+              <input type="number" name="cernium" id="cernium" min="0" max="11">
+              <img class="sacred-symbol-img" src="images/cernium_symbol.png" alt="Cernium symbol">
+            </div>
+            
+            <div id="symbol-div">
+              <label for="hotel-arcus">Hotel Arcus</label>
+              <input type="number" name="hotel-arcus" id="hotel-arcus" min="0" max="11">
+              <img class="sacred-symbol-img" src="images/arcus_symbol.png" alt="Hotel Arcus symbol">
+            </div>
+            
+            <div id="symbol-div">
+              <label for="odium">Odium</label>
+              <input type="number" name="odium" id="odium" min="0" max="11">
+              <img class="sacred-symbol-img" src="images/odium_symbol.png" alt="Odium symbol">
+            </div>
+    
+            <div id="symbol-div">
+              <label for="shangri-la">Shangri-La</label>
+              <input type="number" name="shangri-la" id="shangri-la" min="0" max="11">
+              <img class="sacred-symbol-img" src="images/shangri-la_symbol.png" alt="Shangri-La symbol">
+            </div>
+    
+            <div id="symbol-div">
+              <label for="arteria">Arteria</label>
+              <input type="number" name="arteria" id="arteria" min="0" max="11">
+              <img class="sacred-symbol-img" src="images/arteria_symbol.png" alt="Arteria symbol">
+            </div>
+    
+            <div id="symbol-div">
+              <label for="carcion">Carcion</label>
+              <input type="number" name="carcion" id="carcion" min="0" max="11">
+              <img class="sacred-symbol-img" src="images/carcion_symbol.png" alt="Carcion symbol">
+            </div>
+          </fieldset>
+          
+          <button id="next-btn">Next</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div id="right-div"></div>
 </body>
 </html>

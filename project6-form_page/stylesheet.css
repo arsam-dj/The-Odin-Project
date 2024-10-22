@@ -1,4 +1,148 @@
-body {
-  
-  
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/*----------------- Overall Form Controls ----------------- */
+:root {
+    font-family: Roboto, sans-serif;
+    font-size: 27px;
 }
+
+body {
+    background-image: url(images/shadowvale.png);
+    background-size: 100vw 100vh;
+}
+
+/*----------------- Field Elements ----------------- */
+input, select {
+    font-size: inherit;
+}
+
+#symbol-div > input[type="number"] {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 3px solid #778da9;
+    box-shadow: 3px 3px 3px #778da9;
+    border-radius: 25px;
+}
+
+label {
+    display: inline-block;
+    clear: left;
+    width: 250px;
+}
+
+legend {
+    font-weight: 900;
+}
+
+/*----------------- Divs ----------------- */
+#main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#left-div {
+    margin-right: auto;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    
+    height: 95vh;
+    width: 50vw;
+
+    padding: 10px 10px 0px 10px;
+    
+    border: 5px solid #778da9;
+    border-radius: 25px;
+    
+    background-color: rgba(224, 225, 221, 0.85);
+}
+
+#basic-information {
+    display: flex;
+    flex-direction: row;
+}
+
+#basic-info-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+#character-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 175px;
+
+}
+
+/*----------------- Other ----------------- */
+.symbols {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.arcane-symbol-img {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.sacred-symbol-img {
+    width: 47px;
+    height: auto;
+    vertical-align: middle;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#next-btn {
+    margin: 10px;
+    
+    color: rgba(224, 225, 221);
+    font-size: 35px;
+    font-weight: bolder;
+    
+    background-color: #556c89;
+    
+    width: 125px;
+    height: 50px;
+
+    margin: auto;
+
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px #778da9;
+}
+
+#character-image > img {
+    width: 125px;
+    height: auto;
+}
+
+/*-------------- Form Section Management -------------- */
+
+/* .section {
+    display: none;
+  } */
+
+
+
+
+
+
+
+
+
+
+
+
