@@ -7,18 +7,34 @@
     font-size: 32px;
 }
 
+:root {
+    --blue-color: #2392D0;
+    --bg-color: #E2E7F0;
+    --toolbar-color: #FFFFFF;
+    --card-border-color: #EFB425;
+}
+
+img {
+    display: inline;
+    width: 35px;
+    height: auto;
+    vertical-align: top;
+    padding: 0;
+    margin: 0 25px 0 0;
+}
+
 /* ---------------- Main Layout ---------------- */
 
 .container {
     display: grid;
-    grid-template-rows: 160px 3fr;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 8fr;
+    grid-template-columns: 3fr 10fr 2fr;
 }
 
 .sidebar {
     grid-row: 1 / 3;
     grid-column: 1 / 2;
-    background-color: aqua;
+    background-color: var(--blue-color);
 
     display: grid;
     grid-template-rows: 1fr 6fr 6fr;
@@ -28,7 +44,7 @@
 .header {
     grid-row: 1 / 2;
     grid-column: 2 / 4;
-    background-color: antiquewhite;
+    background-color: var(--toolbar-color);
 
     display: grid;
     grid-template-rows: 1fr 3fr;
@@ -38,11 +54,7 @@
 .main-section {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-    background-color: blueviolet;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: var(--bg-color);
 }
 
 .extra-widgets {
@@ -56,6 +68,17 @@
 
 #logo {
     grid-row: 1 / 2;
+    margin: 0 0 50px 0;
+}
+
+#logo > a > img {
+    width: 60px;
+    height: auto;
+
+    vertical-align: middle;
+
+    -webkit-filter: invert(1); /* safari 6.0 - 9.0 */
+    filter: invert(1);
 }
 
 #user-pages {
@@ -71,6 +94,11 @@
     flex-direction: column;
 }
 
+#user-pages > div > a > img,  
+#site-pages > div > a > img {
+    -webkit-filter: invert(1); /* safari 6.0 - 9.0 */
+    filter: invert(1);
+}
 
 /* --------------- Header Sub-Containers --------------- */
 
@@ -78,6 +106,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 #header-top {
@@ -88,9 +117,45 @@
     grid-row: 2 / 3;
 }
 
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #user-profile-alert {
     display: flex;
     flex-direction: row;
+}
+
+#user-profile-alert > button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+label {
+    
+}
+#search-bar {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 25px;
+    padding: 0px 20px 0px 20px;
+    height: 40px;
+}
+
+.menu-button {
+    color: var(--toolbar-color);
+    background-color: var(--blue-color);
+    
+    border-radius: 50px;
+    border: none;
+    
+    padding: 10px 50px 10px 40px;
+    
+    cursor: pointer;
 }
 
 
@@ -98,16 +163,48 @@
 
 #cards {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    
 }
+
 .card {
-    width: 500px;
-    height: 250px;
-    background-color: white;
+    background-color: var(--toolbar-color);
+    border-radius: 10px;
+    border-left: 10px solid var(--card-border-color)
 }
 
 p {
     font-size: 15px;
+}
+
+#card-buttons > button > img {
+    margin: 0;
+    padding: 0;
+}
+
+.card-button {
+    border: none;
+    background: none;
+}
+.card-button:hover {
+    cursor: pointer;
+}
+
+
+
+/* ---------- Extra Widgets Sub-Containers ---------- */
+
+.extra-widgets {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--bg-color);
+}
+
+#announcements, #trending {
+    display: flex;
+    flex-direction: column;
+    
+    background-color: var(--toolbar-color);
 }

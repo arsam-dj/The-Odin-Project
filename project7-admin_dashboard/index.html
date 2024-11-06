@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cool Bookmarks</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <div id="logo" style="display: inline;">LOGO</div>
+            <div id="logo"><a href=""><img src="images/dashboard.svg" alt="dashboard-logo">Dashboard</a></div>
             <div id="user-pages">
-                <div id="user-page-home">Home</div>
-                <div id="user-page-profile">Profile</div>
-                <div id="user-page-messages">Messages</div>
-                <div id="user-page-history">History</div>
-                <div id="user-page-tasks">Tasks</div>
-                <div id="user-page-communities">Communities</div>
+                <div id="user-page-home"><a href=""><img src="images/home.svg" alt="home">Home</a></div>
+                <div id="user-page-profile"><a href=""><img src="images/profile.svg" alt="profile">Profile</a></div>
+                <div id="user-page-messages"><a href=""><img src="images/messages.svg" alt="messages">Messages</a></div>
+                <div id="user-page-history"><a href=""><img src="images/history.svg" alt="history">History</a></div>
+                <div id="user-page-tasks"><a href=""><img src="images/tasks.svg" alt="tasks">Tasks</a></div>
+                <div id="user-page-communities"><a href=""><img src="images/communities.svg" alt="communities">Communities</a></div>
             </div>
             <div id="site-pages">
-                <div id="site-pages-settings">Settings</div>
-                <div id="site-pages-support">Support</div>
-                <div id="site-pages-privacy">Privacy</div>
+                <div id="site-pages-settings"><a href=""><img src="images/settings.svg" alt="settings">Settings</a></div>
+                <div id="site-pages-support"><a href=""><img src="images/support.svg" alt="support">Support</a></div>
+                <div id="site-pages-privacy"><a href=""><img src="images/privacy.svg" alt="privacy">Privacy</a></div>
             </div>
         </div>
         
         <div class="header">
             <div id="header-top">
-                <input type="search" id="search-bar" size=50>
+                <div id="search">
+                    <label for="search-bar"><img src="images/search.svg" alt="search"></label>
+                    <input type="search" id="search-bar" size=50>
+                </div>
                 <div id="user-profile-alert">
-                    <button>alert</button>
-                <div id="user-profile">Zero Alpha</div>
+                    <button><img src="images/alert.svg" alt="alert"></button>
+                    <div id="user-profile">Morgan Oakley</div>
                 </div>
             </div>
             <div id="header-bottom">
-                <div id="welcome-message">Hi there, Zero Alpha (@alpha000)</div>
+                <div id="welcome-message">Hi there, Morgan Oakley (@morgan)</div>
                 <div id="menu-buttons">
                     <button class="menu-button" id="menu-new">New</button>
                     <button class="menu-button" id="menu-upload">Upload</button>
@@ -43,66 +46,99 @@
             </div>
             
         </div>
-        <div class="main-section">
-            <div>Your Projects</div>
+        <div class="main-section">Your Projects
             <div id="cards">
                 <div class="card" id="card1">
                     <p id="card-title">Super Cool Project</p>
                     <p id="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div id="card-buttons">
-                        <button class="card-button" id="star">star</button>
-                        <button class="card-button" id="hide">hide</button>
-                        <button class="card-button" id="share">share</button>
+                        <button class="card-button" id="star"><img src="images/favourite.svg" alt="favourite"></button>
+                        <button class="card-button" id="follow"><img src="images/follow.svg" alt="follow"></button>
+                        <button class="card-button" id="share"><img src="images/share.svg" alt="share"></button>
                     </div>
                 </div>
                 <div class="card" id="card2">
                     <p id="card-title">Less Cool Project</p>
                     <p id="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div id="card-buttons">
-                        <button class="card-button" id="star">star</button>
-                        <button class="card-button" id="hide">hide</button>
-                        <button class="card-button" id="share">share</button>
+                        <button class="card-button" id="star"><img src="images/favourite.svg" alt="favourite"></button>
+                        <button class="card-button" id="follow"><img src="images/follow.svg" alt="follow"></button>
+                        <button class="card-button" id="share"><img src="images/share.svg" alt="share"></button>
                     </div>
                 </div>
                 <div class="card" id="card3">
                     <p id="card-title">Impossible App</p>
                     <p id="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div id="card-buttons">
-                        <button class="card-button" id="star">star</button>
-                        <button class="card-button" id="hide">hide</button>
-                        <button class="card-button" id="share">share</button>
+                        <button class="card-button" id="star"><img src="images/favourite.svg" alt="favourite"></button>
+                        <button class="card-button" id="follow"><img src="images/follow.svg" alt="follow"></button>
+                        <button class="card-button" id="share"><img src="images/share.svg" alt="share"></button>
                     </div>
                 </div>
                 <div class="card" id="card4">
                     <p id="card-title">Easy Peasy App</p>
                     <p id="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div id="card-buttons">
-                        <button class="card-button" id="star">star</button>
-                        <button class="card-button" id="hide">hide</button>
-                        <button class="card-button" id="share">share</button>
+                        <button class="card-button" id="star"><img src="images/favourite.svg" alt="favourite"></button>
+                        <button class="card-button" id="follow"><img src="images/follow.svg" alt="follow"></button>
+                        <button class="card-button" id="share"><img src="images/share.svg" alt="share"></button>
                     </div>
                 </div>
                 <div class="card" id="card5">
                     <p id="card-title">Ad Blocker</p>
                     <p id="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div id="card-buttons">
-                        <button class="card-button" id="star">star</button>
-                        <button class="card-button" id="hide">hide</button>
-                        <button class="card-button" id="share">share</button>
+                        <button class="card-button" id="star"><img src="images/favourite.svg" alt="favourite"></button>
+                        <button class="card-button" id="follow"><img src="images/follow.svg" alt="follow"></button>
+                        <button class="card-button" id="share"><img src="images/share.svg" alt="share"></button>
                     </div>
                 </div>
                 <div class="card" id="card6">
                     <p id="card-title">Money Maker</p>
                     <p id="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <div id="card-buttons">
-                        <button class="card-button" id="star">star</button>
-                        <button class="card-button" id="hide">hide</button>
-                        <button class="card-button" id="share">share</button>
+                        <button class="card-button" id="star"><img src="images/favourite.svg" alt="favourite"></button>
+                        <button class="card-button" id="follow"><img src="images/follow.svg" alt="follow"></button>
+                        <button class="card-button" id="share"><img src="images/share.svg" alt="share"></button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="extra-widgets">4</div>
+        <div class="extra-widgets">
+            <div>Announcements
+                <div id="announcements">
+                    <div class="announcement" id="site-maintenance">Site Maintenance
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,</p>
+                    </div>
+                    <div class="announcement" id="community-share-day">Community Share Day
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,</p>
+                    </div>
+                    <div class="announcement" id="updated-privacy-policy">Updated Privacy Policy
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,</p>
+                    </div>
+                </div>
+            </div>
+            <div>Trending
+                <div id="trending">
+                    <div class="user">
+                        <p id="username">@tegan</p>
+                        <p id="user-description">World Peace Builder</p>
+                    </div>
+                    <div class="user">
+                        <p id="username">@morgan</p>
+                        <p id="user-description">Super Cool Project</p>
+                    </div>
+                    <div class="user">
+                        <p id="username">@kendall</p>
+                        <p id="user-description">Life Changing App</p>
+                    </div>
+                    <div class="user">
+                        <p id="username">@alex</p>
+                        <p id="user-description">No Traffic Maker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
