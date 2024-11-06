@@ -2,9 +2,9 @@
 
 * {
     font-family: Roboto, Courier, monospace;
-    margin: 5px;
+
+    margin: 0px;
     padding: 0px;
-    font-size: 32px;
 }
 
 :root {
@@ -12,6 +12,9 @@
     --bg-color: #E2E7F0;
     --toolbar-color: #FFFFFF;
     --card-border-color: #EFB425;
+    --paragraph-color: #636464;
+
+    background-color: var(--bg-color);
 }
 
 img {
@@ -27,8 +30,8 @@ img {
 
 .container {
     display: grid;
-    grid-template-rows: 1fr 8fr;
-    grid-template-columns: 3fr 10fr 2fr;
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 3fr 8fr 3fr;
 }
 
 .sidebar {
@@ -36,9 +39,10 @@ img {
     grid-column: 1 / 2;
     background-color: var(--blue-color);
 
-    display: grid;
-    grid-template-rows: 1fr 6fr 6fr;
-    gap: 1px;
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
 }
 
 .header {
@@ -49,25 +53,36 @@ img {
     display: grid;
     grid-template-rows: 1fr 3fr;
     height: 150px;
+
+    box-shadow: 6px 6px 15px var(--paragraph-color);
+
+    padding: 30px;
 }
 
 .main-section {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     background-color: var(--bg-color);
+
+    padding: 30px;
 }
 
 .extra-widgets {
     grid-row: 2 / 3;
     grid-column: 3 / 4;
-    background-color: blue;
+    
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--bg-color);
+
+    padding: 30px;
 }
 
 
 /* ---------------- Sidebar Sub-Containers ---------------- */
 
 #logo {
-    grid-row: 1 / 2;
     margin: 0 0 50px 0;
 }
 
@@ -81,23 +96,35 @@ img {
     filter: invert(1);
 }
 
-#user-pages {
-    grid-row: 2 / 3;
-}
-
-#site-pages {
-    grid-row: 3 / 4;
-}
-
 #user-pages, #site-pages {
     display: flex;
     flex-direction: column;
 }
 
+#user-pages {
+    margin-bottom: 100px;
+}
+
+#logo > a > img,
 #user-pages > div > a > img,  
 #site-pages > div > a > img {
     -webkit-filter: invert(1); /* safari 6.0 - 9.0 */
     filter: invert(1);
+}
+
+#logo > a,
+#user-pages > div > a,
+#site-pages > div > a {
+    color: var(--toolbar-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+#user-pages > div,
+#site-pages > div {
+    margin: 15px 0px 15px 0px;
 }
 
 /* --------------- Header Sub-Containers --------------- */
@@ -135,14 +162,13 @@ img {
     margin: 0;
 }
 
-label {
-    
-}
 #search-bar {
     background-color: var(--bg-color);
     border: none;
     border-radius: 25px;
     padding: 0px 20px 0px 20px;
+    
+    width: 900px;
     height: 40px;
 }
 
@@ -171,11 +197,11 @@ label {
 .card {
     background-color: var(--toolbar-color);
     border-radius: 10px;
-    border-left: 10px solid var(--card-border-color)
-}
+    border-left: 10px solid var(--card-border-color);
 
-p {
-    font-size: 15px;
+    box-shadow: 6px 6px 15px var(--paragraph-color);
+
+    padding: 15px;
 }
 
 #card-buttons > button > img {
@@ -187,6 +213,7 @@ p {
     border: none;
     background: none;
 }
+
 .card-button:hover {
     cursor: pointer;
 }
@@ -195,16 +222,82 @@ p {
 
 /* ---------- Extra Widgets Sub-Containers ---------- */
 
-.extra-widgets {
-    display: flex;
-    flex-direction: column;
-
-    background-color: var(--bg-color);
-}
-
 #announcements, #trending {
     display: flex;
     flex-direction: column;
     
     background-color: var(--toolbar-color);
+
+    border-radius: 10px;
+    padding: 30px;
+
+    box-shadow: 6px 6px 15px var(--paragraph-color);
+}
+
+.announcement, .user {
+    margin-bottom: 20px;
+}
+
+#announcements {
+    margin-bottom: 20px;
+    
+}
+
+.announcement {
+    border-bottom: 1px solid var(--paragraph-color);
+    
+}
+
+.announcement:last-child {
+    border: none;
+}
+
+.announcement > p:nth-child(2) {
+    padding: 20px;
+}
+
+
+/* ---------- Font Sizes ---------- */
+#logo > a {
+    font-size: 40px;
+}
+
+#user-pages > div > a,
+#site-pages > div > a {
+    font-size: 28px;
+}
+
+#user-profile {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.container-label
+{
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+}
+
+#card-title {
+    font-size: 23px;
+    font-weight: bold;
+    color: black;
+}
+
+.widget-label {
+    font-size: 19px;
+    font-weight: bold;
+    color: black;
+}
+
+#username {
+    font-weight: bold;
+    color: black;
+}
+
+p {
+    font-size: 20px;
+    color: var(--paragraph-color);
 }
