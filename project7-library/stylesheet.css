@@ -209,21 +209,31 @@ img {
     padding: 15px;
 }
 
-#card-buttons > button > img {
-    margin: 0;
-    padding: 0;
-}
-
 .card-button {
     border: none;
     background: none;
+    
+    width: 35px;
+    height: 35px;
+    
+    margin: 0 25px 0 0;
 }
 
 .card-button:hover {
     cursor: pointer;
 }
 
+#star {
+    background-image: url(images/favourite.svg);
+}
 
+#follow {
+    background-image: url(images/follow.svg);
+}
+
+#share {
+    background-image: url(images/share.svg);
+}
 
 /* ---------- Extra Widgets Sub-Containers ---------- */
 
