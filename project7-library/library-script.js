@@ -4,21 +4,12 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages
-
-  if (read) {
-    this.read = "Completed"
-  } else {
-    this.read = "In Progress/Not Started"
-  }
-
-  this.info = function() {
-    return(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`)
-  }
+  this.read = read
 
 }
 
 function addBookToLibrary(title, author, pages, read) {
-  newBook = Book(title, author, pages, read)
+  newBook = new Book(title, author, pages, read)
   myLibrary.push(newBook)
 }
 
@@ -53,21 +44,19 @@ function displayBooks(bookArray) {
 
         const bookTitle = document.createElement('p')
         bookTitle.id = 'card-title'
-        bookTitle.textContent(book.title)
+        bookTitle.textContent = book.title
 
         const bookAuthor = document.createElement('p')
         bookAuthor.id = 'card-text'
-        bookAuthor.textContent(book.author)
+        bookAuthor.textContent = book.author
 
         const bookPages = document.createElement('p')
         bookPages.id = 'card-text'
-        bookPages.textContent(`${book.author} pages`)
+        bookPages.textContent = `${book.pages} pages`
 
         const bookProgress = document.createElement('p')
         bookProgress.id = 'card-text'
-        bookProgress.textContent(book.read)
-
-        
+        bookProgress.textContent = book.read
 
         newBook.appendChild(bookTitle)
         newBook.appendChild(bookAuthor)
@@ -75,6 +64,17 @@ function displayBooks(bookArray) {
         newBook.appendChild(bookProgress)
         newBook.appendChild(createCardButtons())
 
-        bookDisplayDiv.insertBefore(newBook, bookDisplayDiv.childNodes[1]);
+        bookDisplayDiv.insertBefore(newBook, bookDisplayDiv.childNodes[2]);
     })
 }
+
+const addBookButton = document.querySelector('#add-book')
+addBookButton.addEventListener('click', () => {
+  bookTitle = document.querySelector('#book-title')
+  bookAuthor = document.querySelector('#book-author')
+  bookPages = document.querySelector('#book-pages')
+  bookStatus = document.querySelector('#book-status')
+
+  addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus.options[bookStatus.selectedIndex].text)
+  displayBooks(myLibrary.slice(-1))
+})
