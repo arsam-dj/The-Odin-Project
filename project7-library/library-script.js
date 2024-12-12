@@ -1,15 +1,25 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, image) {
   this.title = title;
   this.author = author;
   this.pages = pages
   this.read = read
-
+  this.image = image
 }
 
-function addBookToLibrary(title, author, pages, read) {
-  newBook = new Book(title, author, pages, read)
+function addBookToLibrary(title, author, pages, read, image) {
+  coverImage = document.createElement("img");
+  if (image == undefined) {
+    coverImage.src = 'images/book-check.svg'
+  } else {
+    coverImage.src = URL.createObjectURL(image); 
+  }
+  coverImage.onload = () => {
+    URL.revokeObjectURL(coverImage);
+  };
+  
+  newBook = new Book(title, author, pages, read, coverImage)
   myLibrary.push(newBook)
 }
 
@@ -58,9 +68,14 @@ function displayBooks(bookArray) {
         bookProgress.id = 'card-text'
         bookProgress.textContent = book.read
 
+        const bookImage = book.image
+        bookImage.id = 'cover-image'
+        console.log(book.image)
+
         newBook.appendChild(bookTitle)
         newBook.appendChild(bookAuthor)
         newBook.appendChild(bookPages)
+        newBook.appendChild(bookImage)
         newBook.appendChild(bookProgress)
         newBook.appendChild(createCardButtons())
 
@@ -74,7 +89,13 @@ addBookButton.addEventListener('click', () => {
   bookAuthor = document.querySelector('#book-author')
   bookPages = document.querySelector('#book-pages')
   bookStatus = document.querySelector('#book-status')
+  bookImage = document.querySelector('#book-cover').files[0]
 
-  addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus.options[bookStatus.selectedIndex].text)
+  addBookToLibrary(
+    bookTitle.value, 
+    bookAuthor.value, 
+    bookPages.value, 
+    bookStatus.options[bookStatus.selectedIndex].text,
+    bookImage)
   displayBooks(myLibrary.slice(-1))
 })

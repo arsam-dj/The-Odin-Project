@@ -244,6 +244,8 @@ img {
 #cover-image {
     display: flex;
     flex-direction: column;
+    height: 300px;
+    width: auto;
 }
 
 #cover-image > img {
