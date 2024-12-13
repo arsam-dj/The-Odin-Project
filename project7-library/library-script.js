@@ -11,7 +11,7 @@ function Book(title, author, pages, read, image) {
 function addBookToLibrary(title, author, pages, read, image) {
   coverImage = document.createElement("img");
   if (image == undefined) {
-    coverImage.src = 'images/book-check.svg'
+    coverImage.src = 'images/no_cover.jpg'
   } else {
     coverImage.src = URL.createObjectURL(image); 
   }
@@ -38,9 +38,17 @@ function createCardButtons() {
     shareButton.className = 'card-button'
     shareButton.id = 'share'
 
+    const deleteButton = document.createElement('button')
+    deleteButton.className = 'card-button'
+    deleteButton.id = 'delete'
+    deleteButton.addEventListener('click', () => {
+      event.target.parentElement.parentElement.remove() 
+    })
+
     cardButtons.appendChild(starButton)
     cardButtons.appendChild(followButton)
     cardButtons.appendChild(shareButton)
+    cardButtons.appendChild(deleteButton)
 
     return cardButtons
 }
@@ -89,13 +97,32 @@ addBookButton.addEventListener('click', () => {
   bookAuthor = document.querySelector('#book-author')
   bookPages = document.querySelector('#book-pages')
   bookStatus = document.querySelector('#book-status')
-  bookImage = document.querySelector('#book-cover').files[0]
+  bookImage = document.querySelector('#book-cover')
 
-  addBookToLibrary(
-    bookTitle.value, 
-    bookAuthor.value, 
-    bookPages.value, 
-    bookStatus.options[bookStatus.selectedIndex].text,
-    bookImage)
-  displayBooks(myLibrary.slice(-1))
+  if (bookTitle.value != '') {
+    
+    if (bookAuthor.value == '') {
+      bookAuthor.value = 'Unknown Author'
+    }
+
+    if (bookPages.value == '') {
+      bookPages.value = 0
+    }
+    
+    addBookToLibrary(
+      bookTitle.value, 
+      bookAuthor.value, 
+      bookPages.value, 
+      bookStatus.options[bookStatus.selectedIndex].text,
+      bookImage.files[0])
+    displayBooks(myLibrary.slice(-1))
+  
+    bookTitle.value = ''
+    bookAuthor.value = ''
+    bookPages.value = ''
+    bookStatus.options[bookStatus.selectedIndex].text = 'Currently Reading'
+    bookImage.value = ''
+  }
+
+
 })

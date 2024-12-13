@@ -235,6 +235,11 @@ img {
     background-image: url(images/share.svg);
 }
 
+#delete {
+    background-image: url(images/book-minus.svg);
+    background-repeat: no-repeat;
+}
+
 #new-card {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -244,7 +249,7 @@ img {
 #cover-image {
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 320px;
     width: auto;
 }
 
