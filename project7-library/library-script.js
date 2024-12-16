@@ -1,14 +1,14 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read, image) {
+function Book(title, author, rating, read, image) {
   this.title = title;
   this.author = author;
-  this.pages = pages
+  this.rating = rating
   this.read = read
   this.image = image
 }
 
-function addBookToLibrary(title, author, pages, read, image) {
+function addBookToLibrary(title, author, rating, read, image) {
   coverImage = document.createElement("img");
   if (image == undefined) {
     coverImage.src = 'images/no_cover.jpg'
@@ -19,12 +19,13 @@ function addBookToLibrary(title, author, pages, read, image) {
     URL.revokeObjectURL(coverImage);
   };
   
-  newBook = new Book(title, author, pages, read, coverImage)
+  newBook = new Book(title, author, rating, read, coverImage)
   myLibrary.push(newBook)
 }
 
 function createCardButtons() {
     const cardButtons = document.createElement('div')
+    cardButtons.id = 'card-buttons'
         
     const starButton = document.createElement('button')
     starButton.className = 'card-button'
@@ -42,7 +43,9 @@ function createCardButtons() {
     deleteButton.className = 'card-button'
     deleteButton.id = 'delete'
     deleteButton.addEventListener('click', () => {
-      event.target.parentElement.parentElement.remove() 
+      if (confirm("Remove this entry?")) {
+        event.target.parentElement.parentElement.remove() 
+      }
     })
 
     cardButtons.appendChild(starButton)
@@ -61,30 +64,38 @@ function displayBooks(bookArray) {
         newBook.className = 'card'
 
         const bookTitle = document.createElement('p')
-        bookTitle.id = 'card-title'
+        bookTitle.className = 'card-title'
         bookTitle.textContent = book.title
 
         const bookAuthor = document.createElement('p')
-        bookAuthor.id = 'card-text'
+        bookAuthor.className = 'card-text'
         bookAuthor.textContent = book.author
 
-        const bookPages = document.createElement('p')
-        bookPages.id = 'card-text'
-        bookPages.textContent = `${book.pages} pages`
+        const bookRating = document.createElement('p')
+        bookRating.classList.add('card-text', 'book-rating')
+        bookRating.id = `rating-${book.rating}`
+        bookRating.textContent = `${book.rating}/5`
 
         const bookProgress = document.createElement('p')
-        bookProgress.id = 'card-text'
         bookProgress.textContent = book.read
-
+        bookProgress.classList.add('card-text', 'book-progress')
+        if (bookProgress.textContent == 'Completed') {
+          bookProgress.id = 'progress-complete'
+        } else if (bookProgress.textContent == 'Currently Reading') {
+          bookProgress.id = 'progress-reading'
+        } else {
+          bookProgress.id = 'progress-planning-to-read'
+        }
+        
         const bookImage = book.image
         bookImage.id = 'cover-image'
         console.log(book.image)
 
         newBook.appendChild(bookTitle)
         newBook.appendChild(bookAuthor)
-        newBook.appendChild(bookPages)
         newBook.appendChild(bookImage)
         newBook.appendChild(bookProgress)
+        newBook.appendChild(bookRating)
         newBook.appendChild(createCardButtons())
 
         bookDisplayDiv.insertBefore(newBook, bookDisplayDiv.childNodes[2]);
@@ -95,7 +106,7 @@ const addBookButton = document.querySelector('#add-book')
 addBookButton.addEventListener('click', () => {
   bookTitle = document.querySelector('#book-title')
   bookAuthor = document.querySelector('#book-author')
-  bookPages = document.querySelector('#book-pages')
+  bookRating = document.querySelector('#book-rating')
   bookStatus = document.querySelector('#book-status')
   bookImage = document.querySelector('#book-cover')
 
@@ -105,24 +116,31 @@ addBookButton.addEventListener('click', () => {
       bookAuthor.value = 'Unknown Author'
     }
 
-    if (bookPages.value == '') {
-      bookPages.value = 0
+    if (bookRating.value == '') {
+      bookRating.value = '-'
     }
     
     addBookToLibrary(
       bookTitle.value, 
       bookAuthor.value, 
-      bookPages.value, 
+      bookRating.value, 
       bookStatus.options[bookStatus.selectedIndex].text,
       bookImage.files[0])
     displayBooks(myLibrary.slice(-1))
   
     bookTitle.value = ''
     bookAuthor.value = ''
-    bookPages.value = ''
-    bookStatus.options[bookStatus.selectedIndex].text = 'Currently Reading'
+    bookRating.value = ''
+    bookStatus.selectedIndex = 0;
     bookImage.value = ''
   }
+})
 
-
+const deleteButtons = document.querySelectorAll('#delete')
+deleteButtons.forEach(deleteButton => {
+  deleteButton.addEventListener('click', () => {
+    if (confirm("Remove this entry?")) {
+      event.target.parentElement.parentElement.remove() 
+    }
+  })
 })

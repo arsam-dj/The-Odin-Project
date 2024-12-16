@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <div id="logo"><a href=""><img src="images/dashboard.svg" alt="dashboard-logo">Library</a></div>
+            <div id="logo"><a href=""><img src="images/bookshelf.svg" alt="bookshelf-logo">Library</a></div>
             <div id="user-pages">
                 <div id="user-page-home"><a href=""><img src="images/home.svg" alt="home">Home</a></div>
                 <div id="user-page-profile"><a href=""><img src="images/profile.svg" alt="profile">Profile</a></div>
@@ -33,13 +33,13 @@
                 </div>
                 <div id="user-profile-alert">
                     <button><img src="images/alert.svg" alt="alert"></button>
-                    <div id="user-profile">Alex Daiejavad</div>
+                    <div id="user-profile">Arsam DJ</div>
                 </div>
             </div>
             <div id="header-bottom">
                 <div id="welcome-message">
                     <p>Hi there,</p> 
-                    <p>Alex Daiejavad (@arsam-dj)</p>
+                    <p>Arsam DJ (@arsam-dj)</p>
                 </div>
                 <div id="menu-buttons">
                     <button class="menu-button" id="menu-new">New</button>
@@ -50,10 +50,10 @@
             
         </div>
         <div class="main-section">
-            <p class="container-label">Your Projects</p>
+            <p class="container-label">All Book Entries</p>
             <div id="cards">
                 <div class="card">
-                    <p id="card-title">Add a New Book!</p>
+                    <p class="card-title">Add a New Book!</p>
                     <div  id="new-card">
                         <div id="cover-image">
                             <img src="images/book-plus.svg" alt="add new book">
@@ -67,8 +67,8 @@
                             <label for="book-author">Author: </label>
                             <input type="text" id="book-author">
                             
-                            <label for="book-pages">Num. Pages: </label>
-                            <input type="number" id="book-pages" min="1">
+                            <label for="book-rating">Rating: </label>
+                            <input type="number" id="book-rating" min="1" max="5">
         
                             <label for="book-status">Reading Status: </label>
                             <select name="select-status" id="book-status">
@@ -79,6 +79,32 @@
                         </div>
                     </div>
                     <button id="add-book">Add</button>
+                </div>
+                <div class="card">
+                    <p class="card-title">Red Rising</p>
+                    <p id="card-text">Pierce Brown</p>
+                    <img src="images/red_rising.png" id="cover-image">
+                    <p id="progress-complete" class="card-text book-progress">Completed</p>
+                    <p id="rating-3" class="card-text book-rating">3/5</p>
+                    <div id="card-buttons">
+                        <button class="card-button" id="star"></button>
+                        <button class="card-button" id="follow"></button>
+                        <button class="card-button" id="share"></button>
+                        <button class="card-button" id="delete"></button>
+                    </div>
+                </div>
+                <div class="card">
+                    <p class="card-title">The Lightning Thief</p>
+                    <p id="card-text">Rick Riordan</p>
+                    <img src="images/lightning_thief.png" id="cover-image">
+                    <p id="progress-complete" class="card-text book-progress">Completed</p>
+                    <p id="rating-4" class="card-text book-rating">4/5</p>
+                    <div id="card-buttons">
+                        <button class="card-button" id="star"></button>
+                        <button class="card-button" id="follow"></button>
+                        <button class="card-button" id="share"></button>
+                        <button class="card-button" id="delete"></button>
+                    </div>
                 </div>
             </div>
         </div>
