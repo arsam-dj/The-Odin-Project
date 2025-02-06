@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+    <div id="main-container">
+        <div id="game-title">
+            <h1>TIC-TAC-TOE</h1>
+        </div>
+        <div id="gameboard"></div>
+        <div id="player-form"></div>
+    </div>
+
+    <form action="" method="post">
+        <fieldset id="player-information">
+            <div>
+                <label for="player-x">Player X: </label>
+                <input type="text" name="player-x" id="player-x" class="player-field">
+            </div>
+            <div>
+                <label for="player-o">Player O: </label>
+                <input type="text" name="player-o" id="player-o" class="player-field">
+            </div>
+
+            <button id="start-game-btn">Start Game!</button>
+        </fieldset>
+    </form>
+    
     <script src="tictactoe-script.js"></script>
 </body>
 </html>

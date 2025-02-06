@@ -1,0 +1,34 @@
+/* ------------------- MAIN DIVS ------------------- */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    min-height: 75vh;
+}
+
+#player-information {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+/* --------------------------------------------------*/
+
+.board-button {
+    background-color: whitesmoke;
+    width: 100px;
+    height: 100px;
+}
+
+#ttt-div {
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    align-items: center;
+    justify-content: center;
+}

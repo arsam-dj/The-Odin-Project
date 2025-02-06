@@ -109,23 +109,32 @@ function initializeInteractiveGame() {
     const tttBoard = (function () {
         // Function to make board (will not be exported)
         function makeBoard() {
-            let boardButton = document.createElement('button')
-            boardButton.className = 'board-button'
-        
+
             let buttonArray = []
             for (row = 0; row <= 2; row++) {
                 buttonArray[row] = []
                 for (column = 0; column <= 2; column++) {
+                    let boardButton = document.createElement('button')
+                    boardButton.classList.add('board-button', 'unpopulated')
+                    boardButton.id = `button${row}${column}`
                     buttonArray[row][column] = boardButton
                 }
             }
-
+        
             return buttonArray
         }
         let tttArray = makeBoard()
         
-        // Function to display current state of the board
-        const displayBoard = () => console.log(tttArray)
+        // Function to convert buttonArray to an interactive board on the webpage
+        const displayBoard = (tttArray) => {
+            let tttDiv = document.createElement('div')
+            for (row = 0; row <= 2; row++) {
+                for (column = 0; column <= 2; column++) {
+                    tttDiv.appendChild(tttArray[row][column])
+                }
+            }
+            return tttDiv
+        }
         
         // Function to change state of board based on user input
         const addMarker = (rowPosition, colPosition, marker) => {
@@ -221,7 +230,7 @@ function makeBoard() {
         buttonArray[row] = []
         for (column = 0; column <= 2; column++) {
             let boardButton = document.createElement('button')
-            boardButton.classList.add = ('board-button', 'unpopulated')
+            boardButton.classList.add('board-button', 'unpopulated')
             boardButton.id = `button${row}${column}`
             buttonArray[row][column] = boardButton
         }
@@ -230,18 +239,35 @@ function makeBoard() {
     return buttonArray
 }
 
-// Array of arrays (the tttBoard) cannot be attached to the
-// DOM because it's not a DOM object. Instead, I can write
-// a new function to convert the array of array into a 
-// div of divs. This can then be added to the DOM to show
-// the current state of the board.
 function displayBoard(tttArray) {
     let tttDiv = document.createElement('div')
-    
+    for (row = 0; row <= 2; row++) {
+        for (column = 0; column <= 2; column++) {
+            tttDiv.appendChild(tttArray[row][column])
+        }
+    }
+    return tttDiv
 }
 
-let gridDiv = document.createElement('div')
-let tttArray = makeBoard()
-gridDiv.id = 'grid-div'
-gridDiv.append(tttArray)
-document.body.appendChild(gridDiv)
+
+
+let buttonArray = makeBoard()
+let tttDiv = displayBoard(buttonArray)
+tttDiv.id = 'ttt-div'
+
+let gridDiv = document.getElementById('gameboard')
+gridDiv.append(tttDiv)
+
+let emptyButtons = document.querySelectorAll('.unpopulated')
+emptyButtons.forEach(btn => {
+    btn.addEventListener('click', (event, marker) => {
+        if (marker == 'x') {
+            btn.style.backgroundImage = 'url(images/x_icon.svg)'
+        } else {
+            btn.style.backgroundImage = 'url(images/o_icon.svg)'
+        }
+        btn.classList.remove('unpopulated')
+        btn.classList.add('populated')
+        btn.disabled = true
+    })
+})
