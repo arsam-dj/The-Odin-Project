@@ -137,36 +137,7 @@ function initializeInteractiveGame() {
                 gridDiv.append(tttDiv)
             }
 
-            // Function to change state of board based on user input
-            let tttArray = [['', '', ''], ['', '', ''], ['', '', '']]
-            function changeBoardState(event) {
-                buttonID = event.target.id
-                row = Number(buttonID.slice(-2, -1))
-                column = Number(buttonID.slice(-1))
-                tttArray[row][column] = currentPlayer.marker
-            
-                if (currentPlayer.marker == 'X') {
-                    event.target.style.backgroundImage = 'url(images/x_icon.svg)'
-                } else if (currentPlayer.marker == 'O') {
-                    event.target.style.backgroundImage = 'url(images/o_icon.svg)'
-                }
-                event.target.classList.remove('unpopulated')
-                event.target.classList.add('populated')
-                event.target.disabled = true
-            
-                if (detectWin() == 'unfinished') {
-                    if (currentPlayer == playerX) {
-                        currentPlayer = playerO
-                    } else {
-                        currentPlayer = playerX
-                    }
-                } else if (detectWin() == 'tie') {
-                    console.log('The game is a tie.')
-                } else if (detectWin() == 'win') {
-                    console.log(`${currentPlayer.name} has won!`)
-                }
-            }
-
+            // Function to check if game is ongoing or finished.
             function detectWin() {
                 for (i in tttArray) {
                     if (
@@ -199,6 +170,64 @@ function initializeInteractiveGame() {
 
                 return ('unfinished')
             }
+
+            // Function to determine what happens once game is finished (win or tie).
+            function afterGame(outcome) {
+                boardButtons = document.querySelectorAll('.board-button')
+                boardButtons.forEach(btn => {
+                    btn.disabled = true
+                })
+
+                let playerInfo = document.getElementById("player-information")
+                playerInfo.replaceChildren()
+
+                let outcomeText = document.createElement('p')
+                if (outcome == 'win') {
+                    outcomeText.innerHTML = `${currentPlayer.name} has won!`
+                } else if (outcomeText == 'tie') {
+                    outcomeText.innerHTML = `The game is a tie!`
+                }
+                playerInfo.appendChild(outcomeText)
+
+                restartButton = document.createElement('button')
+                restartButton.innerHTML = 'Restart Game?'
+                playerInfo.appendChild(restartButton)
+                document.getElementById("player-information").style.display = '';
+
+            }
+            // Function to change state of board based on user input and detect if game is finished.
+            let tttArray = [['', '', ''], ['', '', ''], ['', '', '']]
+            function changeBoardState(event) {
+                buttonID = event.target.id
+                row = Number(buttonID.slice(-2, -1))
+                column = Number(buttonID.slice(-1))
+                tttArray[row][column] = currentPlayer.marker
+            
+                if (currentPlayer.marker == 'X') {
+                    event.target.style.backgroundImage = 'url(images/x_icon.svg)'
+                } else if (currentPlayer.marker == 'O') {
+                    event.target.style.backgroundImage = 'url(images/o_icon.svg)'
+                }
+                event.target.classList.remove('unpopulated')
+                event.target.classList.add('populated')
+                event.target.disabled = true
+                
+                
+                if (detectWin() == 'unfinished') {
+                    if (currentPlayer == playerX) {
+                        currentPlayer = playerO
+                    } else {
+                        currentPlayer = playerX
+                    }
+                } else if (detectWin() == 'tie') {
+                    afterGame('tie')
+                    console.log('The game is a tie.')
+                } else if (detectWin() == 'win') {
+                    afterGame('win')
+                    console.log(`${currentPlayer.name} has won!`)
+                }
+            }
+
             // Create players
             let playerX
             let playerO
