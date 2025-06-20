@@ -1,3 +1,8 @@
+body {
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+    background-color: #003049;
+}
+
 /* ------------------- MAIN DIVS ------------------- */
 #main-container {
     display: flex;
@@ -10,25 +15,130 @@
     min-height: 75vh;
 }
 
-#player-information {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-}
-/* --------------------------------------------------*/
-
-.board-button {
-    background-color: whitesmoke;
-    width: 200px;
-    height: 200px;
+/* ------------------- TTT Board Elements ------------------- */
+#game-title {
+    background-image: url("images/title.svg");
+    width: 600px;
+    height: 90px;
+    
+    background-repeat: no-repeat;
 }
 
 #ttt-div {
     display: grid;
     grid-template-columns: auto auto auto;
 
+    background-color: #255878;
+    margin: 10px;
+    padding: 25px;
+    border-radius: 50px;
+
     align-items: center;
     justify-content: center;
+    gap: 10px;
+}
+
+.board-button {
+    background-color: #FDF1D6;
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    border: none;
+    border-bottom: 6px solid #fdc541;
+    
+
+}
+
+.board-button.unpopulated:hover {
+    cursor:pointer;
+    background-color: #fcdb8e;
+    transition: all ease 0.5s;
+}
+
+/* ------------------- Form Elements ------------------- */
+#player-form {
+    background-color: #255878;
+    margin: 10px;
+    padding: 25px;
+    border-radius: 50px;
+}
+
+#player-form,
+#game-outcome {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#player-one-div,
+#player-two-div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#player-one-div > span,
+#player-two-div > span {
+    font-size: 40px;
+    color: #C12126;
+}
+
+#outcome-text {
+    color: #FDF1D6;
+    font-size: 50px;
+    margin: 0px;
+}
+
+#player-x,
+#player-o {
+    width: 350px;
+    height: 35px;
+    font-size: 27px;
+    font-weight: bolder;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
+
+#start-game-btn {
+    background-image: url("images/start.png");
+    background-size: 115px 40px;
+    width: 125px;
+    height: 45px;
+}
+    
+
+#restart-game-btn {
+    background-image: url("images/restart.png");
+    background-size: 170px 40px;
+    width: 180px;
+    height: 45px;
+}
+
+#start-game-btn,
+#restart-game-btn {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FDF1D6;
+
+    margin: 10px;
+    padding: 10px;
+
+    border-radius: 5px;
+    border: none;
+    border-bottom: 3px solid #fdc541;
+}
+
+#start-game-btn:hover,
+#restart-game-btn:hover {
+    cursor: pointer;
+    background-color: #fcdb8e;
+    transition: all ease 0.5s;
 }
