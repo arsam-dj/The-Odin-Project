@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    font-family: Roboto, Courier, monospace;
+
+/*     margin: 0px;
+    padding: 0px; */
+}
+
+
+/* --------------- Root Settings --------------- */
+:root {
+  --dark-green: #283618;
+  --light-green: #606c38;
+  --off-white: #fefae0;
+  --light-brown: #dda15e;
+  --dark-brown: #bc6c25;
+  --darker-brown: #9c591f;
+
+  background-color: var(--bg-color);
+}
+
+body {
+  background-color: var(--dark-green);
+  
+}
+
+
+/* --------------- Header --------------- */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+button {
+  background-color: var(--dark-brown);
+  color: var(--off-white);
+
+  font-size: 25px;
+  font-weight: bolder;
+
+  height: 50px;
+  width: 120px;
+  border: solid 3px var(--off-white);
+  border-radius: 10px;
+
+  transition: background 0.3s ease;
+  
+}
+
+button:hover {
+  background-color: var(--darker-brown);
+  cursor:pointer;
+}
+
+
+/* --------------- Home --------------- */
+
+#content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+
+  margin: 10% 5% 10% 5%;
+}
+
+#cafe-image {
+  width: 750px;
+  height: auto;
+  border: 3px solid var(--light-brown);
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px var(--light-brown);
+}
+
+#content-intro {
+  justify-self: flex-end;
+}
+#intro-header,
+#intro-body {
+  margin: 5px;
+}
+
+#intro-header {
+  font-size: 45px;
+  color: var(--light-brown);
+}
+
+#intro-body {
+  font-size: 25px;
+  color: var(--off-white);
+}
+
+
+/* --------------- Contact --------------- */
+#contact {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  gap: 50px;
+
+  margin: 10% 5% 10% 5%;
+}
+
+#contact-header {
+  font-size: 45px;
+  color: var(--light-brown);
+}
+
+#contact-phone,
+#contact-address,
+#contact-hours {
+  font-size: 25px;
+  color: var(--off-white);
+}
+
+#beach-phone {
+  width: 400px;
+  height: auto;
+  border: 3px solid var(--light-brown);
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px var(--light-brown);
+}
