@@ -96,6 +96,44 @@ button:hover {
 }
 
 
+/* --------------- Home --------------- */
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 40px;
+}
+
+#coffee-div,
+#icecream-div,
+#drinks-div,
+#baked-goods-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin: 30px
+}
+
+.menu-img {
+  width: 400px;
+  height: auto;
+  border: 3px solid var(--light-brown);
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px var(--light-brown);
+}
+
+.menuDivHeader {
+  font-size: 35px;
+  font-weight: bolder;
+  color: var(--light-brown);
+  margin: 10px;
+}
+
+
 /* --------------- Contact --------------- */
 #contact {
   display: flex;
@@ -106,16 +144,34 @@ button:hover {
   margin: 10% 5% 10% 5%;
 }
 
+#contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0px;
+}
+
 #contact-header {
   font-size: 45px;
   color: var(--light-brown);
+  margin: 10px;
+}
+
+#hours-header {
+  font-size: 35px;
+  font-weight: bolder;
+  color: var(--light-brown);
+  margin: 10px;
 }
 
 #contact-phone,
 #contact-address,
-#contact-hours {
+#contact-hours,
+#hours {
   font-size: 25px;
   color: var(--off-white);
+  margin: 10px;
 }
 
 #beach-phone {
