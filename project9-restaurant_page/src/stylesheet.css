@@ -133,6 +133,39 @@ button:hover {
   margin: 10px;
 }
 
+.menu-subdiv {
+  margin: 30px;
+}
+
+.item-subdiv {
+  margin: 20px;
+}
+
+.item-subdiv > p:nth-child(1) {
+  font-size: 25px;
+  font-weight: bolder;
+  color: var(--off-white);
+
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-subdiv > p:nth-child(2) {
+  font-size: 20px;
+  color: var(--off-white);
+
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-subdiv > p:nth-child(3) {
+  font-size: 20px;
+  font-style: italic;
+  color: var(--off-white);
+
+  margin: 0px;
+  padding: 0px;
+}
 
 /* --------------- Contact --------------- */
 #contact {
